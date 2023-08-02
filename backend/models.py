@@ -110,19 +110,17 @@ class Consultation(db.Model, SerializerMixin):
     __tablename__ = 'consultations'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer)
     name = db.Column(db.String)
     email = db.Column(db.String)
-    subject = db.Column(db.String)
     message = db.Column(db.String)
 
 
 #add__repr__ for debugging purposes
     def __repr__(self):
-        return f"Consultation(id={self.id}, name='{self.name}', email='{self.email}', subject='{self.subject}', message='{self.message}', timestamp={self.timestamp})"
+        return f"Consultation(id={self.id}, name='{self.name}', email='{self.email}', message='{self.message}')"
 
 #add serialization
-#Exclude consultation_resources relationship
+#Exclude consultation_agencies relationship
     serialize_rules = ('-consultation_agencies.consultation',)  
 
 #add validation
