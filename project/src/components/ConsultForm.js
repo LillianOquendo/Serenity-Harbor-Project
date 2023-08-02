@@ -23,7 +23,7 @@ function ConsultForm() {
 
     const handleSubmit = (event) => {
         //event.preventDefault();
-
+//test
         //topic selection validation
         if (value === "") {
             alert("Please select a topic before submitting.");
