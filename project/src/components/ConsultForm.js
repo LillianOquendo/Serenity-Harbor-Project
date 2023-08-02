@@ -30,7 +30,7 @@ function ConsultForm() {
             return;
         }
         
-        const new_consultation = {
+        const new_consultation = {  
             name: name,
             email: email,
             message: message  
