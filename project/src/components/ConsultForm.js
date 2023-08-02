@@ -38,7 +38,7 @@ function ConsultForm() {
 
 
         //const data = { topic: value };
-        //404 error getting thrown for this fetch. Need to figure out why. Seed is rendering properly just not posting
+        
         fetch('/consultations', {
             method: 'POST',
             headers: {
