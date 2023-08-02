@@ -39,10 +39,8 @@ if __name__ == '__main__':
         # Seed data for the Consultation model with the current timestamp
         consultations = [
             Consultation(
-                user_id=21, 
                 name="to store the name of a user if they are not logged in",
                 email="to store the email of the user providing feedback",
-                subject="to store the subject of the feedback",
                 message="to store the actual message of the feedback",
                 
             )

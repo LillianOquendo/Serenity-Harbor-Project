@@ -3,7 +3,7 @@ from flask_migrate import Migrate
 from flask import Flask, request, make_response, jsonify
 from flask_restful import Api, Resource
 import os
-from flask_cors import CORS
+#from flask_cors import CORS
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
-CORS(app)
+#CORS(app)
 
 migrate = Migrate(app, db)
 
@@ -29,7 +29,7 @@ def home():
 #get all resources
 class AgencyC(Resource):
     def get(self):
-        agencies = AgencyC.query.all()
+        agencies = Agency.query.all()
         print(agencies)
         agencies_to_dict = [agency.to_dict() for agency in agencies]
         
@@ -138,9 +138,7 @@ class ConsultationsC(Resource):
             new_consultation = Consultation(
                 name = data['name'],
                 email = data['email'],
-                subject = data['subject'],
                 message = data['message'],
-                timestamp = data['timestamp']
             )
             db.session.add(new_consultation)
             db.session.commit()
@@ -165,6 +163,7 @@ class ConsultationById(Resource):
             return response
         else:
             response = make_response({"error": "Consultation not found"})
+api.add_resource(ConsultationById, '/consultations/<int:id>')
 
 # route to handle safetyplan submission
 # class GenerateSafetyPlan(Resource):
@@ -206,8 +205,20 @@ class ConsultationById(Resource):
 # api.add_resource(GenerateSafetyPlan, '/generate_safety_plan')
 
 @app.route('/generate_safety_plan', methods =['POST'])
-def generate_safety_plan(Resource):
+class Generate_safety_plan(Resource):
     def post(self):
+        def generate_action_plan(data):
+
+            action_plan = (
+                f"Action Plan:\n"
+                f"1. Reach out to trusted friends, family members, or neighbors: {data.get('question1')}\n"
+                f"2. Reliable transportation options or assistance: {data.get('question2')}\n"
+                f"3. Safe locations outside your home: {data.get('question3')}\n"
+                f"4. People you can trust and confide in about the abuse: {data.get('question4')}\n"
+                f"5. Physical description of the abuser: {data.get('question5')}\n"
+            )
+            return action_plan
+        
         data = request.get_json()
 
         try:
@@ -221,7 +232,7 @@ def generate_safety_plan(Resource):
                 raise ValueError('Missing answers for some questions')
 
             # Generate the action plan
-            action_plan = self.generate_action_plan(data)
+            action_plan = generate_action_plan(data)
 
             # Save the safety plan in the database (if needed)
             new_safety_plan = SafetyPlan(
@@ -241,19 +252,9 @@ def generate_safety_plan(Resource):
             response = make_response({"error": ["validation errors"]}, 400)
             return response
 
-    def generate_action_plan(self, data):
+   
 
-        action_plan = (
-            f"Action Plan:\n"
-            f"1. Reach out to trusted friends, family members, or neighbors: {data.get('question1')}\n"
-            f"2. Reliable transportation options or assistance: {data.get('question2')}\n"
-            f"3. Safe locations outside your home: {data.get('question3')}\n"
-            f"4. People you can trust and confide in about the abuse: {data.get('question4')}\n"
-            f"5. Physical description of the abuser: {data.get('question5')}\n"
-        )
-        return action_plan
-
-api.add_resource(SafetyPlan, '/generate_safety_plan')
+api.add_resource(Generate_safety_plan, '/generate_safety_plan')
 
 
 
