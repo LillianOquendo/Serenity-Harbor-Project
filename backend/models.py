@@ -87,16 +87,11 @@ class SafetyPlan(db.Model, SerializerMixin):
     question5= db.Column(db.String)
 
 
-#add relationship
-    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'))# Exclude user relationship
 
 #add __repr__ for debugging purposes
     def __repr__(self):
             return f"SafetyPlan(id={self.id}, question1 ='{self.question1}'),question2 ='{self.question2}'),question3 ='{self.question3}'),question4 ='{self.question4}'),question5 ='{self.question5}'),"
     
-#add serialization
-#Exclude user relationship
-    # serialize_rules = ('-user.safety_plans',)
 
 #add validation to check that plan_content and creation_date fields are not empty
     @validates('question_1', 'question_2', 'question_3', 'question_4', 'question_5')
@@ -106,6 +101,7 @@ class SafetyPlan(db.Model, SerializerMixin):
         else:
             return value
         
+
 class Consultation(db.Model, SerializerMixin):
     __tablename__ = 'consultations'
 
@@ -130,6 +126,16 @@ class Consultation(db.Model, SerializerMixin):
             raise ValueError("Field cannot be empty")
         else:
             return value
+        
+class ConsultationAppt(db.Model, SerializerMixin):
+    __tablename__= 'consultationAgenies'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    email = db.Column(db.String)
+    day = db.Column(db.String)
+    startTime = db.Column(db.String)
+    endTime = db.Column(db.String)
+
 class ConsultationAgency(db.Model, SerializerMixin):
     __tablename__= 'consultationAgencies'
     id = db.Column(db.Integer, primary_key=True)
@@ -143,3 +149,4 @@ class ConsultationAgency(db.Model, SerializerMixin):
 #add serialization
 #Exclude consultation_resources relationship
     serialize_rules = ('-consultation_agencies.agency',) 
+
