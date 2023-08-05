@@ -1,10 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
-// function App(){
-//   return<h1>Hi</h1>
-
-// }
-
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
@@ -53,10 +47,10 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/safety-plan" element={<SafetyPlan />} />
+          <Route path="/safety_plan" element={<SafetyPlan />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/id-abuse" element={<IdAbuse/>}/>
+          <Route path="/id_abuse" element={<IdAbuse/>}/>
           <Route path="/consultations" element={<Consultation newConsultation={newConsultation}/>}/>
         </Routes>
 
@@ -66,7 +60,7 @@ function App() {
           render={()=> <ConsultForm onSubmit={handleSubmit}/>}
           />
         <Route  
-        path="/safety-plan"
+        path="/safety_plan"
           render={() => <SafetyPlanForm onSubmit={handleSubmit} />}
         />
     
