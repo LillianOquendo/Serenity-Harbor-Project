@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect, useState } from 'react';
+import ConsultForm from './ConsultForm';
 
-function Consultation({newConsultation}){
-console.log(newConsultation)
-    return(
+function Consultations(){
+    
+    return (
         <div>
-            <h1>1{newConsultation.name}</h1>
-            <h1>2{newConsultation.email}</h1>
-            <h1>3{newConsultation.message}</h1>
-
+            <ConsultForm/>
         </div>
-    )
-}
-export default Consultation;
+    );
+};
+
+export default Consultations;

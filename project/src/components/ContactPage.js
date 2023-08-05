@@ -17,7 +17,7 @@ function Contact() {
             <br></br>
             <br></br>
             
-            <ConsultForm/>
+            
         </div>
     )
 }
