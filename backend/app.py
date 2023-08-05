@@ -2,8 +2,10 @@ from models import db, Agency, Consultation, Newsletter, SafetyPlan
 from flask_migrate import Migrate
 from flask import Flask, request, make_response, jsonify
 from flask_restful import Api, Resource
+from flask_mail import Mail, Message
+from keys import username, password
 import os
-#from flask_cors import CORS
+
 
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -14,8 +16,17 @@ DATABASE = os.environ.get(
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['DEBUG'] = True
 app.json.compact = False
-#CORS(app)
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_DEFAULT_SENDER']= username
+app.config['MAIL_PASSWORD'] = password
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+
+mail = Mail(app)
 
 migrate = Migrate(app, db)
 
@@ -38,7 +49,7 @@ class AgencyC(Resource):
         return response
 
 api.add_resource(AgencyC, '/agencies')
-#dsd
+
 #get resources by id
 class AgencyById(Resource):
     def get(self, id):
@@ -83,6 +94,7 @@ api.add_resource(NewsletterC, '/newsletter')
 
 #patch and delete subscriber information for Newsletter
 class NewsletterById(Resource):
+
     def patch(self, id):
         subscriber = Newsletter.query.filter(Newsletter.id == id).first()
 
@@ -121,141 +133,144 @@ class NewsletterById(Resource):
 
 api.add_resource(NewsletterById, '/newsletter/<int:id>')
 
-#get and post consultation requests to consultation table 
-class ConsultationsC(Resource):
+#get & post consultations 
+class ConsultationC(Resource):
     def get(self):
         consultations = Consultation.query.all()
         consultations_to_dict = [consultation.to_dict() for consultation in consultations]
-
+        
         response = make_response(jsonify(consultations_to_dict), 200)
-
+        
         return response
-    
+
     def post(self):
         data = request.get_json()
 
         try:
             new_consultation = Consultation(
-                name = data['name'],
-                email = data['email'],
-                message = data['message'],
+                name=data.get('name', ''),     
+                email=data.get('email', ''),   
+                message=data.get('message', '') 
             )
+            print(new_consultation)
             db.session.add(new_consultation)
             db.session.commit()
 
-            response = make_response(jsonify(new_consultation.to_dict()), 201)
-        
+            response = make_response(jsonify(new_consultation.to_dict()),201)
         except ValueError:
-
             response = make_response({"error":["validation errors"]}, 400)
+            return response
+api.add_resource(ConsultationC, '/consultations')
 
-        return response
-    
-api.add_resource(ConsultationsC, '/consultations')
-
-
+#get, patch & delete consultations
 class ConsultationById(Resource):
     def get(self, id):
         consultation = Consultation.query.filter(Consultation.id == id).first()
-
         if consultation:
-            response = make_response(jsonify(consultation.to_dict()), 200)
+            response = make_response(jsonify(consultation.to_dict()),200)
             return response
         else:
-            response = make_response({"error": "Consultation not found"})
-api.add_resource(ConsultationById, '/consultations/<int:id>')
+            response = make_response({"error":"Consultation Request Not Fount"})  
+            return response
 
-# route to handle safetyplan submission
-# class GenerateSafetyPlan(Resource):
-#     def post(self):
-#         data = request.get_json()
-
-#         try:
-
-#             question1 = data.get('question1')
-#             question2 = data.get('question2')
-#             question3 = data.get('question3')
-#             question4 = data.get('question4')
-#             question5 = data.get('question5')
-
-            
-#             if not (question1 and question2 and question3 and question4 and question5):
-#                 raise ValueError('Missing answers for some questions')
-
-
-#             new_safety_plan = SafetyPlan(
-#                 question1_field_name = question1,
-#                 question2_field_name = question2,
-#                 question3_field_name = question3,
-#                 question4_field_name = question4,
-#                 question5_field_name = question5,
-#             )
-
-#             db.session.add(new_safety_plan)
-#             db.session.commit()
-
-#             return {'message': 'Safety plan successfully generated and saved.'}, 201
-
-#         except ValueError:
-
-#             response = make_response({"error":["validation errors"]}, 400)
-
-#         return response
-
-# api.add_resource(GenerateSafetyPlan, '/generate_safety_plan')
-
-@app.route('/generate_safety_plan', methods =['POST'])
-class Generate_safety_plan(Resource):
-    def post(self):
-        def generate_action_plan(data):
-
-            action_plan = (
-                f"Action Plan:\n"
-                f"1. Reach out to trusted friends, family members, or neighbors: {data.get('question1')}\n"
-                f"2. Reliable transportation options or assistance: {data.get('question2')}\n"
-                f"3. Safe locations outside your home: {data.get('question3')}\n"
-                f"4. People you can trust and confide in about the abuse: {data.get('question4')}\n"
-                f"5. Physical description of the abuser: {data.get('question5')}\n"
-            )
-            return action_plan
-        
+    def patch(self, id):
         data = request.get_json()
 
         try:
-            question1 = data.get('question1')
-            question2 = data.get('question2')
-            question3 = data.get('question3')
-            question4 = data.get('question4')
-            question5 = data.get('question5')
+            consultation = Consultation.query.get(id)
+            if not consultation:
+                return jsonify({"error": "Consultation not found"}), 404
 
-            if not (question1 and question2 and question3 and question4 and question5):
-                raise ValueError('Missing answers for some questions')
+            if 'name' in data:
+                consultation.name = data['name']
+            if 'email' in data:
+                consultation.email = data['email']
+            if 'message' in data:
+                consultation.message = data['message']
 
-            # Generate the action plan
-            action_plan = generate_action_plan(data)
+            db.session.commit()
 
-            # Save the safety plan in the database (if needed)
+            return consultation.to_dict(), 200
+        except ValueError:
+            return jsonify({"error": ["validation errors"]}), 400
+
+    def delete(self, id):
+        consultation = Consultation.query.get(id)
+        if not consultation:
+            return jsonify({"error": "Consultation not found"}), 404
+
+        db.session.delete(consultation)
+        db.session.commit()
+    
+api.add_resource(ConsultationById, '/consultations/<int:id>')
+
+
+
+class GenerateSafetyPlan(Resource):
+    def get(self):
+        safetyplans = SafetyPlan.query.all()
+        safetyplans_to_dict = [safetyplan.to_dict() for safetyplan in safetyplans]
+
+        response = make_response(jsonify(safetyplans_to_dict), 200)
+
+        return response
+    
+    def post(self):
+        data = request.get_json()
+
+        try:
             new_safety_plan = SafetyPlan(
-                question1_field_name=question1,
-                question2_field_name=question2,
-                question3_field_name=question3,
-                question4_field_name=question4,
-                question5_field_name=question5,
-            )
 
+            question1 = f"1. Reach out to these trusted people: {data['question1']}",
+            question2 = f"2. This is how you're going to travel to safety: {data['question2']}",
+            question3 = f"3. Safe locations outside your home: {data['question3']}",
+            question4 = f"4. People you can trust and confide in about your situation: {data['question4']}",
+            question5 = f"5. Physical description of the person: {data['question5']}"
+            )
+            print(new_safety_plan)
             db.session.add(new_safety_plan)
             db.session.commit()
 
-            return {'message': 'Safety plan successfully generated and saved.', 'action_plan': action_plan}, 201
+#email for safetyplan
+            msg= Message('Please Review Your Safety Plan,', sender = 'lillian.oquendo1@gmail.com')
+            msg.body = "\n".join([
+                new_safety_plan.question1,
+                new_safety_plan.question2,
+                new_safety_plan.question3,
+                new_safety_plan.question4,
+                new_safety_plan.question5
+            ])
+            mail.send(msg)
 
+            response = make_response(jsonify(new_safety_plan.to_dict()), 201)
+    
         except ValueError:
-            response = make_response({"error": ["validation errors"]}, 400)
-            return response
+        
+            response = make_response({"error":["validation errors"]}, 400)
+    
+        return response
 
-   
+api.add_resource(GenerateSafetyPlan, '/generate_safety_plan')
 
-api.add_resource(Generate_safety_plan, '/generate_safety_plan')
+class MailService(Resource):
+    def post(self):
+        data = request.get_json()
 
+        username = data.get("username")
+        recipient_email = data.get("recipient_email")
+        sender_email = data.get("sender_email")
+        message = data.get("message")
+
+        msg = Message(
+            subject=f"PetPals Message from {username}",
+            recipients=[recipient_email],
+            body=f"{message}\n" + f"Email me at: {sender_email}",
+        )
+
+        mail.send(msg)
+
+        return "Sent"
+api.add_resource(MailService, '/send_email')
 
 
 if __name__ == '__main__':
