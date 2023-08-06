@@ -5,7 +5,7 @@ function Testimonials() {
     const testimonialsData = [
         {
             id: 1,
-            name: 'Alice',
+            name: 'Jessica',
             message: 'I finally found the courage to leave my abusive partner. Serenity Harbor helped me through the toughest times and provided me with a safety plan that saved my life.',
         },
         {
