@@ -6,7 +6,7 @@ function NavBar() {
     const headerStyle = {
         color: '#F0F3BD',
         fontFamily: 'Arial, sans-serif',
-        
+        fontSize: '20px'
     };
 
     const containerStyle = {
@@ -16,7 +16,7 @@ function NavBar() {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#05668D'
+        backgroundColor: '#0077B6'
         
     };
 
@@ -43,7 +43,7 @@ function NavBar() {
         <header style={headerStyle}>
             <div style={containerStyle}>
                 <Link to="/" style={{ ...logoStyle, ...{ display: 'flex', alignItems: 'center' } }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style={{ flex: 'none' }} viewBox="0 0 24 24" data-darkreader-inline-stroke="">
+                    <svg xmlns="https://i.ibb.co/m4fDvWx/Logo-500x500-px.jpg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style={{ flex: 'none' }} viewBox="0 0 24 24" data-darkreader-inline-stroke="">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
                     </svg>
                     <span style={{ marginLeft: '30px' }} className="text-xl">
