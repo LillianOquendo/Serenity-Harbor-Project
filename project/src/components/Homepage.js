@@ -6,6 +6,7 @@ function HomePage() {
         // Section
         color: '#636363',
         fontFamily: 'Arial, sans-serif',
+        backgroundColor:'#caf0f8'
 
     };
 
@@ -22,7 +23,7 @@ function HomePage() {
 
     const headerStyle = {
         // Header
-        backgroundColor: '#05668D',
+        backgroundColor: '#0077B6',
         color: '#FFFFFF',
         padding: '6px 0',
         borderRadius: '6px',
@@ -85,14 +86,22 @@ function HomePage() {
 
     };
 
+    const cardContainerStyle = {
+        // Container for each card
+        background: '#F6F6E9',
+        padding: '10px', 
+        borderRadius: '6px',
+        margin: '10px',
+    };
     const learnMoreStyle = {
         // Learn More Link
         color: '#059669',
         display: 'inline-flex',
         alignItems: 'center',
         marginTop: '10px',
-
     };
+
+
 
     return (
         <section style={sectionStyle} className="text-gray-600 body-font">
