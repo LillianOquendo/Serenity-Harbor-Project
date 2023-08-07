@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function NewsletterSignup() {
     const [formData, setFormData] = useState({
@@ -6,10 +6,44 @@ function NewsletterSignup() {
         email: '',
     });
 
+    const [subscribers, setSubscribers] = useState([]);
+    const [formSubmitted, setFormSubmitted] = useState(false)
+
+    useEffect(() => {
+        fetch('/newsletter')
+            .then((response) => response.json())
+            .then((subscribers) => setSubscribers(subscribers));
+    }, []);
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Rest of the code...
+
+        const new_subscriber = {
+            name: formData.name,
+            email: formData.email,
+        };
+
+        fetch('/newsletter', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify(new_subscriber),
+        })
+            .then((response) => response.json())
+            .then((new_subscriber) => {
+                setSubscribers([...subscribers, new_subscriber]);
+                setFormSubmitted(true);
+
+                //clear fields after submission
+                setFormData({
+                    name: '',
+                    email: '',
+                });
+            });
     };
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -25,7 +59,7 @@ function NewsletterSignup() {
         fontFamily: 'Arial, sans-serif',
         minHeight: '10vh',
         flexDirection: 'column',
-        
+
     };
 
     const footerStyle = {
@@ -35,7 +69,7 @@ function NewsletterSignup() {
         padding: '6px 0',
         borderRadius: '6px',
         marginTop: 'auto',
-        
+
     };
 
     return (
