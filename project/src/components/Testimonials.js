@@ -1,11 +1,79 @@
 import React from 'react';
 
 function Testimonials() {
+    
+const sectionStyle = {
+    color: '#374151',
+    fontFamily: 'sans-serif',
+  };
+  
+  const containerStyle = {
+    margin: '0 auto',
+    display: 'flex',
+    padding: '5px',
+    paddingTop: '24px',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+  
+  const textContainerStyle = {
+    flexGrow: 1,
+    width: '50%',
+    paddingRight: '24px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    textAlign: 'left',
+    marginBottom: '16px',
+    textAlign: 'center',
+  };
+  
+  const headingStyle = {
+    fontSize: '3rem',
+    fontFamily: 'sans-serif',
+    marginBottom: '0.75rem',
+    fontWeight: '500',
+    color: '#111827',
+  };
+  
+  const paragraphStyle = {
+    marginBottom: '2rem',
+    lineHeight: '1.7',
+  };
+  
+  const buttonContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+  };
+  
+  const buttonStyle = {
+    color: 'white',
+    backgroundColor: '#6366F1',
+    border: 'none',
+    padding: '0.5rem 1.5rem',
+    outline: 'none',
+    borderRadius: '9999px',
+    fontSize: '1.25rem',
+    cursor: 'pointer',
+    marginRight: '0.5rem',
+  };
+  
+  const secondaryButtonStyle = {
+    color: '#4B5563',
+    backgroundColor: '#F3F4F6',
+  };
+  
+  const imageStyle = {
+    objectFit: 'cover',
+    objectPosition: 'center',
+    borderRadius: '9999px',
+    width: '83.333333%',
+  };
 
     const testimonialsData = [
         {
             id: 1,
-            name: 'Alice',
+            name: 'Jessica',
             message: 'I finally found the courage to leave my abusive partner. Serenity Harbor helped me through the toughest times and provided me with a safety plan that saved my life.',
         },
         {
@@ -21,6 +89,7 @@ function Testimonials() {
     ];
 
     return (
+        
         <div>
             <h2>Testimonials</h2>
             {testimonialsData.map((testimonial) => (

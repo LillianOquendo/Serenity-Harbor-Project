@@ -41,7 +41,7 @@ def home():
 class AgencyC(Resource):
     def get(self):
         agencies = Agency.query.all()
-        print(agencies)
+        print(agencies[0])
         agencies_to_dict = [agency.to_dict() for agency in agencies]
         
         response = make_response(jsonify(agencies_to_dict), 200)#converts each resource into an obj and then makes a json response
@@ -66,11 +66,12 @@ api.add_resource(AgencyById, '/agencies/<int:id>')
 class NewsletterC(Resource):
     def get(self):
         subscribers = Newsletter.query.all()
-        subs_to_dict = [subscriber.to_dict()for subscriber in subscribers]
+        subs_to_dict = [subscriber.to_dict() for subscriber in subscribers]
 
         response = make_response(jsonify(subs_to_dict), 200)
 
         return response
+    
     def post(self):
         data = request.get_json()
 
@@ -252,25 +253,26 @@ class GenerateSafetyPlan(Resource):
 
 api.add_resource(GenerateSafetyPlan, '/generate_safety_plan')
 
-class MailService(Resource):
-    def post(self):
-        data = request.get_json()
+# reference code for sending email
+# class MailService(Resource):
+#     def post(self):
+#         data = request.get_json()
 
-        username = data.get("username")
-        recipient_email = data.get("recipient_email")
-        sender_email = data.get("sender_email")
-        message = data.get("message")
+#         username = data.get("username")
+#         recipient_email = data.get("recipient_email")
+#         sender_email = data.get("sender_email")
+#         message = data.get("message")
 
-        msg = Message(
-            subject=f"PetPals Message from {username}",
-            recipients=[recipient_email],
-            body=f"{message}\n" + f"Email me at: {sender_email}",
-        )
+#         msg = Message(
+#             subject=f"PetPals Message from {username}",
+#             recipients=[recipient_email],
+#             body=f"{message}\n" + f"Email me at: {sender_email}",
+#         )
 
-        mail.send(msg)
+#         mail.send(msg)
 
-        return "Sent"
-api.add_resource(MailService, '/send_email')
+#         return "Sent"
+# api.add_resource(MailService, '/send_email')
 
 
 if __name__ == '__main__':
