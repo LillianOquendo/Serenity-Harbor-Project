@@ -10,7 +10,7 @@ import SafetyPlanForm from './components/SafetyPlanForm';
 import IdAbuse from './components/IdAbuse';
 import NewsletterSignup from './components/Newsletter';
 import Consultation from './components/Consultations';
-
+import AgencyMaps from './components/AgencyMapping';
 
 import './App.css';
 
@@ -54,6 +54,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/id_abuse" element={<IdAbuse/>}/>
           <Route path="/consultations" element={<Consultation newConsultation={newConsultation}/>}/>
+          <Route path="/resources" element={<AgencyMaps/>}/>
         </Routes>
 
 {/* Force system to populate information on their own pages */}
