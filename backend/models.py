@@ -32,50 +32,40 @@ class Agency(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
-    address = db.Column(db.String)
-    phone_number = db.Column(db.String)
-    description = db.Column(db.String)   
-    type_id = db.Column(db.Integer, db.ForeignKey('agencyTypes.type_name'))
+    fulladdress = db.Column(db.String)
+    zipcode = db.Column(db.String)
+    category = db.Column(db.String)
+    phone = db.Column(db.String)
+    google_maps_url = db.Column(db.String)
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
+    website = db.Column(db.String)
+    opening_hours = db.Column(db.Text)
 
 #add relationship
-    agency_type = db.relationship('AgencyType', backref='agencies')
+    # consultations = db.relationship('Consultation', secondary='consultationAgencies', backref='agencies')
+    consultations = db.relationship('Consultation', backref='agency')
 
+    #this is a fix for SerializerMixIn not working properly.
+    #Caused error "AttributeError: 'Agency' object has no attribute 'o'" <<<*note Letter kept changing
+    def to_dict(self):
+        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 #add __repr__ for debugging purposes
     def __repr__(self):
-        return f"Agency(id={self.id}, name='{self.name}', address='{self.address}', phone_number='{self.phone_number}', description='{self.description}', type_id={self.type_id})"
+        return f"Agency(id={self.id}, name='{self.name}', fulladdress='{self.fulladdress}', phone='{self.phone}', category='{self.category}', google_maps_url='{self.google_maps_url}', latitude={self.latitude}, longitude={self.longitude}, website='{self.website}', opening_hours='{self.opening_hours}')"
 
 #add serialization
-#Exclude agency_type    relationship
-    serialize_rules = ('-agency_type.agencies')
+#Exclude consultations relationship
+    serialize_rules = ('-consultations')
 
 #add validations for name, address, and description to make sure field isn't empty
-    @validates('name', 'address', 'phone_number','description')
+    @validates('name', 'fulladdress', 'phone','category')
     def validate_non_empty_fields(self, key, value):
         if not value:
             raise ValueError("Field cannot be empty")
         else:
             return value
-class AgencyType(db.Model, SerializerMixin):
-    __tablename__='agencyTypes'
-    id = db.Column(db.Integer, primary_key=True)
-    type_name = db.Column(db.String)
-#add __repr__ for debugging purposes
-    def __repr__(self):
-        return f"AgencyType(id={self.id}, type_name='{self.type_name}')"
 
-#add serialization
-#Exclude resources relationship
-    serialize_rules = ('-agencies.agency_type',)
-
-#add validation to check that type_name field is not empty
-    @validates('type_name')
-    def validate_type_name(self, key, type_name):
-        if not type_name:
-            raise ValueError("Field cannot be empty")
-        else:
-            return type_name
-
-#need to create questions for safety plan then edit model for it       
 class SafetyPlan(db.Model, SerializerMixin):
     __tablename__ = 'safetyplans'
 
@@ -110,6 +100,9 @@ class Consultation(db.Model, SerializerMixin):
     email = db.Column(db.String)
     message = db.Column(db.String)
 
+#add relationship
+    # agencies = db.relationship('Agency', secondary='consultationAgencies', backref='consultations')
+    agency_id = db.Column(db.Integer, db.ForeignKey('agencies.id'))
 
 #add__repr__ for debugging purposes
     def __repr__(self):
@@ -127,26 +120,26 @@ class Consultation(db.Model, SerializerMixin):
         else:
             return value
         
-class ConsultationAppt(db.Model, SerializerMixin):
-    __tablename__= 'consultationAgenies'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    email = db.Column(db.String)
-    day = db.Column(db.String)
-    startTime = db.Column(db.String)
-    endTime = db.Column(db.String)
+# class ConsultationAppt(db.Model, SerializerMixin):
+#     __tablename__= 'consultationAgencies'
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String)
+#     email = db.Column(db.String)
+#     day = db.Column(db.String)
+#     startTime = db.Column(db.String)
+#     endTime = db.Column(db.String)
 
-class ConsultationAgency(db.Model, SerializerMixin):
-    __tablename__= 'consultationAgencies'
-    id = db.Column(db.Integer, primary_key=True)
-    consultation_id = db.Column(db.Integer, db.ForeignKey('consultations.id'))
-    agency_id = db.Column(db.Integer, db.ForeignKey('agencies.id'))
+# class ConsultationAgency(db.Model, SerializerMixin):
+#     __tablename__= 'consultationAgencies'
+#     id = db.Column(db.Integer, primary_key=True)
+#     consultation_id = db.Column(db.Integer, db.ForeignKey('consultations.id'))
+#     agency_id = db.Column(db.Integer, db.ForeignKey('agencies.id'))
 
-#add __repr__ for debugging purposes
-    def __repr__(self):
-        return f"ConsultationAgency(consultation_id={self.consultation_id}, agency_id={self.agency_id})"
+# #add __repr__ for debugging purposes
+#     def __repr__(self):
+#         return f"ConsultationAgency(consultation_id={self.consultation_id}, agency_id={self.agency_id})"
     
-#add serialization
-#Exclude consultation_resources relationship
-    serialize_rules = ('-consultation_agencies.agency',) 
+# #add serialization
+# #Exclude consultation_resources relationship
+#     serialize_rules = ('-consultation_agencies.agency',) 
 
