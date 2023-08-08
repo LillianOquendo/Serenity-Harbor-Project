@@ -101,7 +101,7 @@ function HomePage() {
         marginTop: '10px',
     };
 
-
+//fix routing to indiviual testimonies
 
     return (
         <section style={sectionStyle} className="text-gray-600 body-font">
@@ -128,7 +128,7 @@ function HomePage() {
                         <p style={cardParagraphStyle} className="text-base leading-relaxed mt-2">
                             Serenity Harbor became my refuge when I thought all hope was lost.
                         </p>
-                        <Link to="/testimonials" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
+                        <Link to="/testimonials#jessicas-story" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
                             Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -144,7 +144,7 @@ function HomePage() {
                         <p style={cardParagraphStyle} className="text-base leading-relaxed mt-2">
                             The journey to healing was daunting, but Serenity Harbor provided a warm and supportive environment where I felt understood and valued.
                         </p>
-                        <Link to="/testimonials" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
+                        <Link to="/testimonials#eves-story" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
                             Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -160,7 +160,7 @@ function HomePage() {
                         <p style={cardParagraphStyle} className="text-base leading-relaxed mt-2">
                             Serenity Harbor became my lifeline during the darkest days of my life.
                         </p>
-                        <Link to="/testimonials" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
+                        <Link to="/testimonials#maries-story" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
                             Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -176,7 +176,7 @@ function HomePage() {
                         <p style={cardParagraphStyle} className="text-base leading-relaxed mt-2">
                             Serenity Harbor gave me the strength and support I needed to break free from the cycle of abuse.
                         </p>
-                        <Link to="/testimonials" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
+                        <Link to="/testimonials#davids-story" style={learnMoreStyle} className="text-green-500 inline-flex items-center mt-3">
                             Learn More
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
