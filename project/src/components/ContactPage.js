@@ -1,5 +1,5 @@
 import React from "react";
-import ConsultForm from "./ConsultForm";
+
 
 function Contact() {
     const phoneNumber = '123-456-7891';
@@ -14,6 +14,7 @@ function Contact() {
             <p>Phone: {phoneNumber}</p>
             <p>Address: {address}</p>
             <p>Email: {email}</p>
+            
             <br></br>
             <br></br>
             
