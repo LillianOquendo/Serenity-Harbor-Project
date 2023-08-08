@@ -69,7 +69,7 @@ function NavBar() {
                     <Link to="/contact" style={linkStyle}>
                         Contact
                     </Link>
-                    <Link to="/resources" style={linkStyle}>
+                    <Link to="/agencies" style={linkStyle}>
                         Resource Finder
                     </Link>
                 </nav>

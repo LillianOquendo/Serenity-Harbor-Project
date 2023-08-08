@@ -54,7 +54,7 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/id_abuse" element={<IdAbuse/>}/>
           <Route path="/consultations" element={<Consultation newConsultation={newConsultation}/>}/>
-          <Route path="/resources" element={<AgencyMaps/>}/>
+          <Route path="/agencies" element={<AgencyMaps/>}/>
         </Routes>
 
 {/* Force system to populate information on their own pages */}
