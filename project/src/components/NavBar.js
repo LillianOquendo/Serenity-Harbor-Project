@@ -69,6 +69,9 @@ function NavBar() {
                     <Link to="/contact" style={linkStyle}>
                         Contact
                     </Link>
+                    <Link to="/resources" style={linkStyle}>
+                        Resource Finder
+                    </Link>
                 </nav>
             </div>
         </header>
