@@ -66,11 +66,14 @@ function NavBar() {
                     <Link to="/consultations" style={linkStyle}>
                         Consultations
                     </Link>
-                    <Link to="/contact" style={linkStyle}>
-                        Contact
-                    </Link>
                     <Link to="/agencies" style={linkStyle}>
                         Resource Finder
+                    </Link>
+                    <Link to='/about_us' style={linkStyle}>
+                    About Us
+                    </Link>
+                    <Link to="/contact" style={linkStyle}>
+                        Contact
                     </Link>
                 </nav>
             </div>

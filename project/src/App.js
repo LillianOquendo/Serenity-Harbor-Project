@@ -8,10 +8,10 @@ import ContactPage from './components/ContactPage';
 import Testimonials from './components/Testimonials'
 import SafetyPlanForm from './components/SafetyPlanForm';
 import IdAbuse from './components/IdAbuse';
-import NewsletterSignup from './components/Newsletter';
+import AboutUs from './components/AboutUs';
 import Consultation from './components/Consultations';
-import AgencyMaps from './components/AgencyMapping';
-
+import AgencyMain from './components/AgencyMain';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -54,7 +54,8 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/id_abuse" element={<IdAbuse/>}/>
           <Route path="/consultations" element={<Consultation newConsultation={newConsultation}/>}/>
-          <Route path="/agencies" element={<AgencyMaps/>}/>
+          <Route path="/agencies" element={<AgencyMain/>}/>
+          <Route path='/about_us' element={<AboutUs/>}/>
         </Routes>
 
 {/* Force system to populate information on their own pages */}
@@ -69,7 +70,8 @@ function App() {
     
 
         </Routes>
-        <NewsletterSignup />
+        {/* <NewsletterSignup /> */}
+        <Footer/>
       </div>
   
   );

@@ -83,7 +83,7 @@ if __name__ == '__main__':
                         google_maps_url= 'https://www.google.com/maps?cid=14359376581609598559',
                         latitude= 40.6538331,
                         longitude= -74.007763,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Contact  for Hours'
                         ),
                     Agency(
@@ -131,7 +131,7 @@ if __name__ == '__main__':
                         google_maps_url= 'https://www.google.com/maps?cid=166803202160488267',
                         latitude= 40.6079811,
                         longitude= -73.9628436,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Contact  for Hours'
                         ),
                     Agency(
@@ -223,7 +223,7 @@ if __name__ == '__main__':
                         fulladdress= '1709 St Marks Ave, Brooklyn, NY 11233',
                         zipcode= '11233',
                         category= 'Legal services',
-                        phone= '0',
+                        phone= 'Not Available',
                         google_maps_url= 'https://www.google.com/maps?cid=11296803397541302497',
                         latitude= 40.6731586,
                         longitude= -73.9102233,
@@ -259,7 +259,7 @@ if __name__ == '__main__':
                         fulladdress= '105 Carlton Ave, Brooklyn, NY 11205',
                         zipcode= '11205',
                         category= 'Housing',
-                        phone= '0',
+                        phone= 'Not Available',
                         google_maps_url= 'https://www.google.com/maps?cid=8318725530698507136',
                         latitude= 40.6945977,
                         longitude= -73.9729832,
@@ -395,7 +395,7 @@ if __name__ == '__main__':
                         google_maps_url= 'https://www.google.com/maps?cid=9752970211265887527',
                         latitude= 40.6470923,
                         longitude= -73.9536162,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Saturday: [Closed], Sunday: [Closed], Monday: [9 AM-5 PM], Tuesday: [9 AM-5 PM], Wednesday: [9 AM-5 PM], Thursday: [9 AM-5 PM], Friday: [9 AM-5 PM]'
                         ),
                     Agency(
@@ -403,11 +403,11 @@ if __name__ == '__main__':
                         fulladdress= '944 Rogers Ave, Brooklyn, NY 11226',
                         zipcode= '11226',
                         category= 'Food',
-                        phone= '0',
+                        phone= 'Not Available',
                         google_maps_url= 'https://www.google.com/maps?cid=17014546244236460240',
                         latitude= 40.647197,
                         longitude= -73.952403,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Contact  for Hours'
                         ),
                     Agency(
@@ -419,7 +419,7 @@ if __name__ == '__main__':
                         google_maps_url= 'https://www.google.com/maps?cid=7601536480353983217',
                         latitude= 40.643087,
                         longitude= -73.9579119,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Saturday: [Closed], Sunday: [Closed], Monday: [Closed], Tuesday: [Closed], Wednesday: [Closed], Thursday: [10-11 AM], Friday: [Closed]'
                         ),
                     Agency(
@@ -443,7 +443,7 @@ if __name__ == '__main__':
                         google_maps_url= 'https://www.google.com/maps?cid=8829163822432246483',
                         latitude= 40.6506792,
                         longitude= -73.9573622,
-                        website= '0',
+                        website= 'Not Available',
                         opening_hours= 'Contact  for Hours'
                         ),
                     Agency(
@@ -451,7 +451,7 @@ if __name__ == '__main__':
                         fulladdress= '2010 Fulton St, Brooklyn, NY 11233',
                         zipcode= '11233',
                         category= 'Food',
-                        phone= '0',
+                        phone= 'Not Available',
                         google_maps_url= 'https://www.google.com/maps?cid=11650636839449530757',
                         latitude= 40.6784694,
                         longitude= -73.9181397,
