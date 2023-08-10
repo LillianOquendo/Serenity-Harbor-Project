@@ -1,16 +1,7 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.body{
+background: linear-gradient(to right, #00bfff, #3498db);
 }
 
 .App-header {
@@ -24,15 +15,83 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.agencyBody {
+  margin: 10;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #00bfff, #3498db);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.agencyContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background:linear-gradient(to right, #00bfff, #3498db);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.agencyHeader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.agencyHeader h1 {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.agency-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.agency-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.agency-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agency-card h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  
+}
+
+.agencies-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+}
+
+.agency {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+  margin-top: 20px;
+  height: 400px;
+}
+.image-size {
+  width: 145px; 
+  height: 100px; 
+}
+
+.agency-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px; 
 }
