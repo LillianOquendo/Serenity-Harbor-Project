@@ -3,7 +3,7 @@ from flask_migrate import Migrate
 from flask import Flask, request, make_response, jsonify
 from flask_restful import Api, Resource
 from flask_mail import Mail, Message
-from keys import username, password
+#from keys import username, password
 import os
 
 
@@ -19,12 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 app.json.compact = False
 
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_DEFAULT_SENDER']= username
-app.config['MAIL_PASSWORD'] = password
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
+#
 
 mail = Mail(app)
 
