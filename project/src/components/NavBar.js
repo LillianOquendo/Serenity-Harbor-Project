@@ -1,139 +1,57 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-
-
-    return (
-        <header className={` items-center w-full bg-customTeal`}>
-            <div className="container">
-                <div className="relative flex items-center justify-end -mx-4">
-                    <div>
-                        <a href="/#" className="block w-full py-5">
-                            <img
-                                src="https://i.ibb.co/m4fDvWx/Logo-500x500-px.jpg"
-                                alt="logo"
-                                className="min-w-fit min-h-fit"
-                            />
-                        </a>
-                    </div>
-                    <div className="items-center justify-between w-full px-4">
-                        <div>
-                            <nav
-                            
-                            >
-                                <ul className="block  justify-end">
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/#"
-                                    >
-                                        Home
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/safety_plan"
-                                    >
-                                        Safety Plan
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/testimonials"
-                                    >
-                                        Testimonials
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/id_abuse"
-                                    >
-                                        Signs of Abuse
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/agencies"
-                                    >
-                                        Resource Finder
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/about_us"
-                                    >
-                                        About
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/contact"
-                                    >
-                                        Contact
-                                    </ListItem>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
+  return (
+    <header className="navbar">
+<h1 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-5xl text-center">
+Serenity Harbor</h1>
+<h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-2xl text-center">Rising Above Violence: Embrace the Serenity Within </h3>
+      <br></br>
+      <div className="container">
+        </div>
+        <nav className="nav-links">
+        <Link to="/">
+            Home
+        </Link>
+        <Link to="/safety_plan" >
+            Safety Plan
+        </Link>
+        <Link to="/id_abuse" >
+            Signs of Abuse
+        </Link>
+        <Link to="/testimonials" >
+            Testimonials
+        </Link>
+        <Link to="/consultations" >
+            Consultations
+        </Link>
+        <Link to="/agencies" >
+            Resource Finder
+        </Link>
+        <Link to='/about_us' >
+        About Us
+        </Link>
+        <Link to="/contact" >
+            Contact
+        </Link>
+        </nav>
+      
+    </header>
+  );
 }
+
+
+
 
 export default Navbar;
 
-const ListItem = ({ children, navItemStyles, NavLink }) => {
-    return (
-        <>
-            <li>
-                <a
-                    href={NavLink}
-                    className={`flex py-2 text-base font-medium lg:ml-12 lg:inline-flex ${navItemStyles}`}
-                >
-                    {children}
-                </a>
-            </li>
-        </>
-    );
-};
 
-// import React from 'react';
+
+ // import React from 'react';
 // import { Link } from 'react-router-dom';
 
-// function NavBar() {
-//     // Header
-//     const headerStyle = {
-//         color: '#F0F3BD',
-//         fontFamily: 'Arial, sans-serif',
-//         fontSize: '20px'
-//     };
-
-//     const containerStyle = {
-//         //Container
-//         margin: 'auto',
-//         padding: '5px',
-//         display: 'flex',
-//         flexDirection: 'row',
-//         alignItems: 'center',
-//         backgroundColor: '#05668D',
-//         height: '100px'
-
-//     };
-
-//     const logoStyle = {
-//         //Logo
-//         width: '10px',
-//         height: '10px',
-//         color: 'white',
-//         padding: '20px',
-
-//         borderRadius: '50%',
-
-//     };
-
-//     const linkStyle = {
-//         //Links
-//         marginRight: '30px',
-//         color: '#F0F3BD',
-//         textDecoration: 'none',
-
-//     };
-
-//     return (
+// 
 //         <header style={headerStyle}>
 //             <div style={containerStyle}>
 //             <Link to="/" style={{ ...logoStyle, ...{ display: 'flex', alignItems: 'center' } }}>
@@ -144,28 +62,28 @@ const ListItem = ({ children, navItemStyles, NavLink }) => {
 // </Link>
 
 //                 <nav style={{ marginLeft: 'auto' }}>
-//                     <Link to="/" style={linkStyle}>
+//                     <Link to="/">
 //                         Home
 //                     </Link>
-//                     <Link to="/safety_plan" style={linkStyle}>
+//                     <Link to="/safety_plan" >
 //                         Safety Plan
 //                     </Link>
-//                     <Link to="/id_abuse" style={linkStyle}>
+//                     <Link to="/id_abuse" >
 //                         Signs of Abuse
 //                     </Link>
-//                     <Link to="/testimonials" style={linkStyle}>
+//                     <Link to="/testimonials" >
 //                         Testimonials
 //                     </Link>
-//                     <Link to="/consultations" style={linkStyle}>
+//                     <Link to="/consultations" >
 //                         Consultations
 //                     </Link>
-//                     <Link to="/agencies" style={linkStyle}>
+//                     <Link to="/agencies" >
 //                         Resource Finder
 //                     </Link>
-//                     <Link to='/about_us' style={linkStyle}>
+//                     <Link to='/about_us' >
 //                     About Us
 //                     </Link>
-//                     <Link to="/contact" style={linkStyle}>
+//                     <Link to="/contact" >
 //                         Contact
 //                     </Link>
 //                 </nav>
