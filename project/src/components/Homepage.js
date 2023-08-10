@@ -1,3 +1,13 @@
+// import React from "react";
+
+// function Homepage(){
+//     return(
+//         <div></div>
+//     )
+// }
+// export default Homepage;
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -105,20 +115,17 @@ function HomePage() {
 
     return (
         <section style={sectionStyle} className="text-gray-600 body-font">
-            <div style={{ display: 'flex', flexWrap: 'wrap', padding: '6px 0' }}>
+            <div style={{ display: 'flex', padding: '6px 0' }}>
 
-                <p style={paragraphStyle} className="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
-                    "Rising Above Violence: Embrace the Serenity Within"
-                </p>
             </div>
             <div style={containerStyle} className="container px-5 py-24 mx-auto">
                 <div style={headerStyle} className="flex flex-col">
                     <div className="h-1 bg-gray-200 rounded overflow-hidden">
-                        <div className="w-24 h-full bg-green-500"></div>
+                        
                     </div>
 
                 </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', margin: '-4px' }}>
+                <div style={{ display: 'flex', margin: '-4px' }}>
                     {/* Jessica's Card */}
                     <div style={cardStyle} className="p-4 md:w-1/3 sm:mb-0 mb-6">
                         <div className="rounded-lg h-64 overflow-hidden">
