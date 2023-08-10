@@ -17,7 +17,7 @@ function Contact() {
     });
 
     return (
-        <div>
+        <div className="contact-us">
 
             <h2 className="text-7xl text-center" >Contact Us</h2>
             <p>Phone: {phoneNumber}</p>
