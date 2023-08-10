@@ -7,7 +7,7 @@ function Homepage(){
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
           {/* <!-- text - start --> */}
           <div class="mb-10 md:mb-16">
-            <h2 class="mb-4 text-center text-2xl font-bold text-white md:mb-6 lg:text-5xl py-8">Welcome! Please Explore Our Site!</h2>
+            <h2 class="mb-4 text-center text-2xl font-bold text-white md:mb-6 lg:text-5xl py-8">Welcome!</h2>
       
             <p class="mx-auto max-w-screen-md text-center text-white md:text-xl">We at Serenity Harbor are committed to the wellbeing 
             of our Brooklyn, NY residents. We assist with housing, food insecurity, legal matters, healthcare and housing. </p>

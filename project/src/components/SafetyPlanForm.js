@@ -86,42 +86,32 @@ function SafetyPlanForm() {
     };
 
     return (
-        <section class=" bg-gradient-to-r from-cyan-500 to-blue-500">
-            <div
-                id="section-1"
-                className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24"
-            >
-                <div
-                    id="div-1"
-                    className="justify-center mx-auto text-left align-bottom transition-all transform bg-white rounded-lg sm:align-middle sm:max-w-2xl sm:w-full"
-                >
-                    <div
-                        id="div-2"
-                        className=" items-center justify-center grid-cols-8 mx-auto shadow-xl lg:grid-cols-8 rounded-xl"
-                    >
-                        <div id="div-3" className="w-full px-6 py-3">
-                            <div id="div-4">
-                                <div id="div-5" className="mt-3 text-left sm:mt-5">
-                                    <div id="div-6" className="mt-3">
-                                        <h3
-                                            id="heading-1"
-                                            className="text-lg font-bold text-neutral-600 leading-6 lg:text-5xl text-center"
-                                        >
-                                            Safety Plan Creator
+    
+            <div>
+                {formSubmitted ? (
+            <p>Thank you for your answers. Please see your generated plan below!</p>
+            ) : (
+            <div>
+                <section className="bg-gradient-to-r from-cyan-500 to-blue-500">
+                <div id ='1' className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
+                        <div id='2' className="flex justify-center">
+                        <div id ='3'className="w-full max-w-2xl bg-white rounded-lg shadow-xl">
+                                <div id='4' className="p-6 sm:p-8">
+                                    <div id='5' className="mt-3">
+                                        <h3 className="text-2xl font-bold text-customTeal text-center lg:text-5xl">
+                                            Safety Plan Generator
                                         </h3>
                                     </div>
-                                    <div
-                                        id="div-7"
-                                        className="mt-3 text-base text-gray-500 text-center"
-                                    >
+                                    <div id='6' className="mt-3 text-base text-gray-500 text-center">
                                         <p>We're Here to Help</p>
                                     </div>
                                 </div>
                             </div>
-
-                            <div id="div-8" className="mt-6 space-y-2 text-center text-lg">
+                        </div>
+                            <form onSubmit={handleSubmit}>
+                        <div id="div-8" className="mt-6 space-y-2 text-center text-xl text-white p-4">
                                 <div id="div-9">
-                                    <label text-customTeal>
+                                    <label>
                                         1. Who are your trusted friends, family members, or
                                         neighbors that you can reach out to in case of an emergency?
                                         Include phone numbers if possible
@@ -132,8 +122,8 @@ function SafetyPlanForm() {
                                         placeholder="If you have no answer type 'None'"
                                     ></textarea>
                                 </div>
-                                <div id="div-10 text-lg">
-                                    <label text-customTeal>
+                                <div id="div-10 text-xl text-white p-4">
+                                    <label>
                                         2. Is there reliable transportation available to you if you
                                         need to leave quickly, and if not, who can you rely on for
                                         transportation assistance?
@@ -144,8 +134,8 @@ function SafetyPlanForm() {
                                         placeholder="If you have no answer type 'None'"
                                     ></textarea>
                                 </div>
-                                <div id="div-11 text-lg">
-                                    <label text-customTeal>
+                                <div id="div-11 text-xl text-white p-4">
+                                    <label>
                                         3. List 3 safe location outside your home where you can go
                                         if you feel threatened or need to leave quickly?
                                     </label>
@@ -155,8 +145,8 @@ function SafetyPlanForm() {
                                         placeholder="If you have no answer type 'None'"
                                     ></textarea>
                                 </div>
-                                <div id="div-12 text-lg">
-                                    <label text-customTeal>
+                                <div id="div-12 text-xl text-white p-4">
+                                    <label>
                                         4. Who are the people you can trust and confide in about the
                                         abuse you're experiencing?
                                     </label>
@@ -166,8 +156,8 @@ function SafetyPlanForm() {
                                         placeholder="If you have no answer type 'None'"
                                     ></textarea>
                                 </div>
-                                <div id="div-13 text-lg">
-                                    <label text-customTeal>
+                                <div id="div-13 text-xl text-white p-4">
+                                    <label>
                                         5. Can you provide a physical description of your abuser,
                                         including details such as their gender, age, height, weight,
                                         hair color, eye color, and any distinguishing features or
@@ -178,18 +168,30 @@ function SafetyPlanForm() {
                                         className="h-60 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring focus:border-customTeal"
                                         placeholder="If you have no answer type 'None'"
                                     ></textarea>
-                                    <button class="inline-block rounded-lg bg-customTeal px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-customLightBlue transition duration-100 hover:bg-customLightBLue focus-visible:ring active:bg-customLightBlue md:text-base">
-                                        Submit
-                                    </button>
-                                </div>
+                                    </div>
+                                    <div className="mt-6">
+                            
+                            <div>
+                                <label>
+                                    Email a copy of your safetyplan to yourself:
+                                    <br></br>
+                                    <input type='email' name='email' value={email} onChange={handleEmailChange} />
+                                </label>
                             </div>
+                            <br></br>
+                            <button type = 'submit' className="inline-block rounded-lg bg-customTeal px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-customLightBlue transition duration-100 hover:bg-customLightBlue focus-visible:ring active:bg-customLightBlue md:text-base">Generate Safety Plan</button>
+                            
                         </div>
                     </div>
+                    </form>
                 </div>
-            </div>
-        </section>
-    );
-}
+            </section>
+        </div>
+        
+    )}
+    </div>
+    )
+        }
 
 export default SafetyPlanForm;
 
