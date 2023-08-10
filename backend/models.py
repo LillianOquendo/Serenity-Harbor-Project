@@ -129,17 +129,17 @@ class Consultation(db.Model, SerializerMixin):
 #     startTime = db.Column(db.String)
 #     endTime = db.Column(db.String)
 
-# class ConsultationAgency(db.Model, SerializerMixin):
-#     __tablename__= 'consultationAgencies'
-#     id = db.Column(db.Integer, primary_key=True)
-#     consultation_id = db.Column(db.Integer, db.ForeignKey('consultations.id'))
-#     agency_id = db.Column(db.Integer, db.ForeignKey('agencies.id'))
+class ConsultationAgency(db.Model, SerializerMixin):
+    __tablename__= 'consultationAgencies'
+    id = db.Column(db.Integer, primary_key=True)
+    consultation_id = db.Column(db.Integer, db.ForeignKey('consultations.id'))
+    agency_id = db.Column(db.Integer, db.ForeignKey('agencies.id'))
 
-# #add __repr__ for debugging purposes
-#     def __repr__(self):
-#         return f"ConsultationAgency(consultation_id={self.consultation_id}, agency_id={self.agency_id})"
+#add __repr__ for debugging purposes
+    def __repr__(self):
+        return f"ConsultationAgency(consultation_id={self.consultation_id}, agency_id={self.agency_id})"
     
-# #add serialization
-# #Exclude consultation_resources relationship
-#     serialize_rules = ('-consultation_agencies.agency',) 
+#add serialization
+#Exclude consultation_resources relationship
+    serialize_rules = ('-consultation_agencies.agency',) 
 
