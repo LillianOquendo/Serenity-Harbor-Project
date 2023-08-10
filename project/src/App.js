@@ -13,6 +13,7 @@ import Consultation from './components/Consultations';
 import AgencyMain from './components/AgencyMain';
 import Footer from './components/Footer';
 import './App.css';
+import 'tailwindcss/tailwind.css'
 
 function App() {
   const [completedSafetyPlan, setCompletedSafetyPlan] = useState([]);
