@@ -3,10 +3,10 @@ import React from "react";
 function NewsletterSignup() {
     return (
 
-        <footer id='1' className="bg-white">
-            <div id='2'className="bg-customTeal py-6">
-                <div id='3'className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <div id='4' className="flex flex-col items-center justify-between gap-2 md:flex-row">
+        <footer id="1" className="bg-white">
+  <div id="2" className="bg-customTeal py-6">
+    <div id="3" className="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div id="4" className="flex flex-col items-center justify-between gap-2 md:flex-row">
                         <div id='5' className="mb-3 text-center md:mb-0 md:text-left">
                             <span  className="font-bold uppercase tracking-widest text-gray-100">
                                 Newsletter
@@ -30,8 +30,8 @@ function NewsletterSignup() {
 
 
 
-            <div id = '7' className="border-t py-8 text-center text-sm text-gray-400">
-                © 2021 - Present Flowrift. All rights reserved.
+            <div id="7" className="border-t py-4 text-center text-sm text-gray-400">
+                © 2023 - Created by Lillian Oquendo
             </div>
 
 

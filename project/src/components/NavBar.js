@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <header className="navbar">
-<h1 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-5xl text-center">
+    <header className="contact-us bg-gradient-to-r from-cyan-500 to-blue-500">
+<h1 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-5xl text-center py-8">
 Serenity Harbor</h1>
 <h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-2xl text-center">Rising Above Violence: Embrace the Serenity Within </h3>
       <br></br>
-      <div className="container">
+      <div className="container py-4">
         </div>
         <nav className="nav-links">
         <Link to="/">

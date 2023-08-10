@@ -4,7 +4,7 @@ function AboutUs() {
     return (
         <div>
             <div className="contact-us bg-gradient-to-r from-cyan-500 to-blue-500">
-                <div><h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-6xl text-center  ">About Us</h3></div>
+                <div><h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-6xl text-center py-4">About Us</h3></div>
                 <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
                     <header class="mb-8 flex items-center justify-between py-4 md:mb-12 md:py-8 xl:mb-16">
                         <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-white ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden">
