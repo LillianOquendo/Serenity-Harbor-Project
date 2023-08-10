@@ -80,6 +80,7 @@ agencyCoordinates = agencyCoordinates.filter(
 
 
   return (
+    <div className="map-container">
     <MapContainer center={[40.6462288, -73.95754575]} zoom={14} style={{ height: '400px', width: '100%' }}>
       <TileLayer url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png' attribution="© OpenStreetMap contributors" />
       {agencyCoordinates.map((agency, index) => (
@@ -96,6 +97,7 @@ agencyCoordinates = agencyCoordinates.filter(
         </Marker>
       ))}
     </MapContainer>
+    </div>
   );
 }
 
