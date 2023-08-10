@@ -2,7 +2,6 @@ from models import db, Agency, Consultation, Newsletter, SafetyPlan
 from flask_migrate import Migrate
 from flask import Flask, request, make_response, jsonify
 from flask_restful import Api, Resource
-from flask_mail import Mail, Message
 #from keys import username, password
 import os
 
@@ -19,9 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['DEBUG'] = True
 app.json.compact = False
 
-#
 
-mail = Mail(app)
 
 migrate = Migrate(app, db)
 
