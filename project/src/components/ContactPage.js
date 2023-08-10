@@ -17,15 +17,16 @@ function Contact() {
     });
 
     return (
-        <div className="contact-us">
+        <div className="contact-us bg-gradient-to-r from-cyan-500 to-blue-500">
 
-            <h2 className="text-7xl text-center" >Contact Us</h2>
-            <p>Phone: {phoneNumber}</p>
-            <p>Address: {address}</p>
-            <p>Email: {email}</p>
+<h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-5xl text-center px-4 ">Contact Us</h3>
+            <p className="lg:text-3xl text-center">Phone: {phoneNumber}</p>
+            <p className="lg:text-3xl text-center">Address: {address}</p>
+            <p className="lg:text-3xl text-center">Email: {email}</p>
 
             <br></br>
             <br></br>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh' }}>
             <MapContainer center={[40.71320544444, -74.01320544444]} zoom={13} style={{ height: '400px', width: '50%', padding: '-40px' }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution="© OpenStreetMap contributors" />
 
@@ -35,6 +36,7 @@ function Contact() {
                     </Popup>
                 </Marker>
             </MapContainer>
+            </div>
 
         </div>
     )

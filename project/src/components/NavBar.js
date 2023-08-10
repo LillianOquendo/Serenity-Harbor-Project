@@ -54,12 +54,6 @@ function Navbar() {
                                     </ListItem>
                                     <ListItem
                                         navItemStyles="text-customLightBlue text-4xl hover:text-primary"
-                                        NavLink="/consultations"
-                                    >
-                                        Consultations
-                                    </ListItem>
-                                    <ListItem
-                                        navItemStyles="text-customLightBlue text-4xl hover:text-primary"
                                         NavLink="/about_us"
                                     >
                                         About
