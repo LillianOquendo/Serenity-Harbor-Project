@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useAgencyContext } from "./AgencyContext";
 
 function ConsultForm() {
+    const { selectedCategory, setSelectedCategory, agencies, setAgencies } = useAgencyContext();
     const [consultations, setConsultations] = useState([]);
     const [value, setValue] = useState("");
     const [name, setName] = useState("");
@@ -17,7 +19,10 @@ function ConsultForm() {
     }, [])
 
     const handleChange = (event) => {
-        setValue(event.target.value);
+        const newValue=(event.target.value);
+        setValue(newValue);
+
+        setSelectedCategory(newValue);
     };
     
     const handleEdit = (consultationId) => {

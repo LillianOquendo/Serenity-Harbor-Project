@@ -5,7 +5,7 @@ import Homepage from './components/Homepage';
 import ConsultForm from './components/ConsultForm';
 import SafetyPlan from './components/SafetyPlanForm';
 import ContactPage from './components/ContactPage';
-import Testimonials from './components/Testimonials'
+import Testimonials from './components/Testimonials';
 import SafetyPlanForm from './components/SafetyPlanForm';
 import IdAbuse from './components/IdAbuse';
 import AboutUs from './components/AboutUs';
@@ -13,17 +13,18 @@ import Consultation from './components/Consultations';
 import AgencyMain from './components/AgencyMain';
 import Footer from './components/Footer';
 import './App.css';
-import 'tailwindcss/tailwind.css'
+import 'tailwindcss/tailwind.css';
+import { AgencyProvider } from './components/AgencyContext';
 
 function App() {
   const [completedSafetyPlan, setCompletedSafetyPlan] = useState([]);
-  const [newConsultation, setNewConsultation] = useState([])
+  const [newConsultation, setNewConsultation] = useState([]);
 
-  useEffect(()=>{
-    fetch ('/consultations')
-    .then (response => response.json())
-    .then (newConsultation =>setNewConsultation(newConsultation))
-  }, [])
+  useEffect(() => {
+    fetch('/consultations')
+      .then(response => response.json())
+      .then(newConsultation => setNewConsultation(newConsultation));
+  }, []);
 
   const handleSubmit = (formData) => {
     fetch('/generate_safety_plan', {
@@ -32,20 +33,15 @@ function App() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData),
-
     })
-      .then((response) => response.json())
-      .then((data) => {
+      .then(response => response.json())
+      .then(data => {
         setCompletedSafetyPlan(data);
-      })
-  }
-
-  // const location = useLocation();
-  // const isSafetyPlanPage = location.pathname ==='/safety-plan';
+      });
+  };
 
   return (
-
-  
+    <AgencyProvider>
       <div>
         <NavBar />
         <Routes>
@@ -53,29 +49,28 @@ function App() {
           <Route path="/safety_plan" element={<SafetyPlan />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/id_abuse" element={<IdAbuse/>}/>
-          <Route path="/consultations" element={<Consultation newConsultation={newConsultation}/>}/>
-          <Route path="/agencies" element={<AgencyMain/>}/>
-          <Route path='/about_us' element={<AboutUs/>}/>
+          <Route path="/id_abuse" element={<IdAbuse />} />
+          <Route path="/consultations" element={<Consultation newConsultation={newConsultation} />} />
+          <Route path="/agencies" element={<AgencyMain />} />
+          <Route path='/about_us' element={<AboutUs />} />
         </Routes>
 
-{/* Force system to populate information on their own pages */}
+        {/* Force system to populate information on their own pages */}
         <Routes>
-        <Route path='/contact'
-          render={()=> <ConsultForm onSubmit={handleSubmit}/>}
+          <Route
+            path='/contact'
+            render={() => <ConsultForm onSubmit={handleSubmit} />}
           />
-        <Route  
-        path="/safety_plan"
-          render={() => <SafetyPlanForm onSubmit={handleSubmit} />}
-        />
-    
-
+          <Route
+            path="/safety_plan"
+            render={() => <SafetyPlanForm onSubmit={handleSubmit} />}
+          />
         </Routes>
         {/* <NewsletterSignup /> */}
-        <Footer/>
+        <Footer />
       </div>
-  
+    </AgencyProvider>
   );
 }
 
-      export default App;
+export default App;
