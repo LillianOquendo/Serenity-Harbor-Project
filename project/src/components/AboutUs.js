@@ -1,29 +1,54 @@
+
 import React from "react";
-
-function AboutUs(){
-    return(
+function AboutUs() {
+    return (
         <div>
-            <p>About Serenity Harbor: 
+            <div className="contact-us bg-gradient-to-r from-cyan-500 to-blue-500">
+                <div><h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-6xl text-center  ">About Us</h3></div>
+                <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
+                    <header class="mb-8 flex items-center justify-between py-4 md:mb-12 md:py-8 xl:mb-16">
+                        <button type="button" class="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-2.5 py-2 text-sm font-semibold text-white ring-indigo-300 hover:bg-gray-300 focus-visible:ring active:text-gray-700 md:text-base lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                            </svg>
 
-Welcome to Serenity Harbor, your sanctuary of support and healing. Our mission is to provide a guiding light for those navigating the challenging journey of overcoming domestic violence in Brooklyn, NY. At Serenity Harbor, we understand the profound impact of domestic violence on individuals and families, and we're here to help you find the local resources you need to regain control of your life.
+                            Menu
+                        </button>
+                        {/* <!-- buttons - end --> */}
+                    </header>
 
-Our Commitment
+                    <section class="flex flex-col justify-between gap-6 sm:gap-10 md:gap-16 lg:flex-row">
+                        {/* <!-- content - start --> */}
+                        <div class="flex flex-col justify-center sm:text-center lg:py-12 lg:text-left xl:w-5/12 xl:py-24 flex-shrink">
+                            <p class="mb-4 font-semibold text-customLightBlue md:mb-6 md:text-lg xl:text-xl">Welcome to</p>
 
-Serenity Harbor is more than a website; it's a lifeline for survivors. We are committed to creating a safe and compassionate space where survivors of domestic violence can access the resources and information they deserve. Our team has meticulously curated a comprehensive directory of local services, shelters, legal aid, counseling, and support groups that specifically cater to the Brooklyn community.
+                            <h1 class="mb-8 text-4xl font-bold text-black sm:text-5xl md:mb-12 md:text-6xl">Serenity Harbor</h1>
+                            <div id='about-info'>
+                                <p class="mb-8 leading-relaxed text-white md:mb-12 lg:w-4/5 xl:text-lg">
+                                    About Serenity Harbor: Welcome to Serenity Harbor, your sanctuary of support and healing. Our mission
+                                    is to provide a guiding light for those navigating the challenging journey of overcoming domestic violence
+                                    in Brooklyn, NY. We are committed to creating a safe and compassionate space where survivors of domestic
+                                    violence can access the resources and information they deserve. Our team has meticulously curated a
+                                    comprehensive directory of local services, shelters, legal aid, counseling, and support groups that
+                                    specifically cater to the Brooklyn community.
 
-A Path to Healing
+                                </p>
+                            </div>
+                            <div class="flex flex-col gap-2.5 sm:flex-row sm:justify-center lg:justify-start">
+                                <a href="/contact" class="inline-block rounded-lg bg-customLightBlue px-8 py-3 text-center text-sm font-semibold text-black outline-none ring-customLightBlue transition duration-100 hover:bg-indigo-600 focus-visible:ring active:bg-indigo-700 md:text-base">Contact Us</a>
 
-At the heart of Serenity Harbor is the belief that healing is possible. We're dedicated to fostering an environment where survivors can find their voice, rebuild their lives, and embrace a future free from violence. Our website serves as a bridge connecting you to the care and guidance you need to take the first steps towards recovery.
+                            </div>
+                        </div>
+                        {/* <!-- content - end -->
 
-Community Empowerment
-
-We believe in the power of unity and community. Through shared stories, experiences, and information, we're building a network of survivors, advocates, and allies who stand together against domestic violence. Together, we're raising awareness, promoting education, and advocating for change to break the cycle of abuse.
-
-Your Journey Begins Here
-
-Whether you're seeking immediate assistance, resources for a loved one, or information to empower yourself with knowledge, Serenity Harbor is here to guide you. Our website is designed to be user-friendly and easily accessible, ensuring that you can find the help you need in your time of need.
-
-Join us in creating a brighter future, one where survivors find strength, hope, and a path to serenity. Together, we are Serenity Harbor, lighting the way to healing and renewal in Brooklyn, NY.</p>
+                        <!-- image - start --> */}
+                        <div class="h-48 overflow-hidden rounded-lg bg-gray-100 shadow-lg lg:h-auto xl:w-5/12 py-10 p">
+                            <img id='about-pic' src="https://i.ibb.co/m4fDvWx/Logo-500x500-px.jpg" loading="lazy" alt="Photo by Lillian Oquendo" class="h-full w-full object-cover object-center" />
+                        </div>
+                        {/* <!-- image - end --> */}
+                    </section>
+                </div>
+            </div>
         </div>
     )
 }
