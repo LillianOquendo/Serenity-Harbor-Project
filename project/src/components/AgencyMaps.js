@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import {Icon} from 'leaflet'
 
+//Define custom icons for different categories
   const legalIcon = new Icon ({
     iconUrl : 'https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/64/external-legal-business-and-finance-icongeek26-linear-colour-icongeek26.png',
     iconSize : [35,35], // size of the icon
