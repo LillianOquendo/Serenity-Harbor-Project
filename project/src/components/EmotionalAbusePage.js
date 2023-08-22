@@ -2,11 +2,6 @@ import React from "react";
 
 function Emotional(){
     return(
-        <div>
-                    <div>
-                <div>
-
-
 <div>
 <div class = "md:lg:xl:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border">
     <div
@@ -72,9 +67,6 @@ function Emotional(){
         </div> */}
 
     </div>
-        </div>
-        </div>
-        </div>
     )
 }
 export default Emotional;
