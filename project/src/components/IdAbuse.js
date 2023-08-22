@@ -9,16 +9,16 @@ function IdAbuse() {
     return (
         <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-20">
             <div class="mx-auto max-w-screen-xl px-4 md:px-8">
-                {/* <!-- text - start --> */}
+                
                 <div class="mb-10 md:mb-16">
                     <h2 class="mb-4 text-center text-2xl font-bold text-white md:mb-6 lg:text-6xl">Types of Abuse</h2>
                     <p class="mx-auto max-w-screen-md text-center text-white md:text-2xl">Abuse comes in many forms. Below you'll find indicators of various abuse forms. Please use it as a guide. </p>
 
                 </div>
-                {/* <!-- text - end --> */}
+                
 
                 <div class="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-2 xl:grid-cols-2 xl:gap-8">
-                    {/* <!-- article - start --> */}
+                
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/dkX5mQb/abuse-image7.jpg" loading="lazy" alt="Photo by Minh Pham" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -35,9 +35,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end -->
 
-      <!-- article - start --> */}
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/dP6Mvbv/abuse-image1.jpg" loading="lazy" alt="Photo by Lorenzo Herrera" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -56,9 +54,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end -->
 
-      <!-- article - start --> */}
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/ssTD5FD/abuse-image2.jpg" loading="lazy" alt="Photo by Magicle" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -78,9 +74,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end --> */}
 
-                    {/* <!-- article - start --> */}
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/K2xW35Y/abuse-image6.jpg" loading="lazy" alt="Photo by Martin Sanchez" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -100,8 +94,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end --> */}
-                    {/* <!-- article - start --> */}
+
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/HxLtzFb/abuse-image4.jpg" loading="lazy" alt="Photo by Martin Sanchez" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -120,8 +113,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end --> */}
-                    {/* <!-- article - start --> */}
+
                     <div class="flex flex-col items-center overflow-hidden rounded-lg border md:flex-row">
                         <a href="#" class="group relative block h-48 w-full shrink-0 self-start overflow-hidden bg-gray-100 md:h-full md:w-32 lg:w-48">
                             <img src="https://i.ibb.co/87L0TcB/abuse-image5.jpg" loading="lazy" alt="Photo by Martin Sanchez" class="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
@@ -140,7 +132,7 @@ function IdAbuse() {
 
                         </div>
                     </div>
-                    {/* <!-- article - end --> */}
+
                 </div>
             </div>
         </div>);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import NavbarWithMegaMenu from './components/NavBar';
 import Homepage from './components/Homepage';
 import ConsultForm from './components/ConsultForm';
 import SafetyPlan from './components/SafetyPlanForm';
@@ -43,7 +43,7 @@ function App() {
   return (
     <AgencyProvider>
       <div>
-        <NavBar />
+        <NavbarWithMegaMenu />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/safety_plan" element={<SafetyPlan />} />

@@ -21,10 +21,10 @@ function AgencyMain() {
 
 
     const categories = [
-        { name: 'Legal services', image: "https://i.ibb.co/XXfZjrq/Legal-Services.jpg"},
-        { name: 'Health', image: "https://i.ibb.co/ZY0DZZK/health-service.jpg"},
-        { name: 'Housing', image: "https://i.ibb.co/HqMK3Ct/housing-services.jpg"},
-        { name: 'Food', image: "https://i.ibb.co/kDWJr5m/food-services.jpg" },
+        { name: 'Legal services'},
+        { name: 'Health'},
+        { name: 'Housing'},
+        { name: 'Food'},
     ];
 
     return (
@@ -43,7 +43,6 @@ function AgencyMain() {
                     <AgencyCard
                         key={category.name}
                         name={category.name}
-                        image={category.image}
                         onClick={handleCategoryClick}
                     />
                 ))}

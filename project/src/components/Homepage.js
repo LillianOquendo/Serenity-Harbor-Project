@@ -1,8 +1,14 @@
 import React from "react";
+//import { Button } from "@material-tailwind/react";
 
 function Homepage(){
+
     return(
         <div >
+          
+    {/* <div className="flex w-max gap-4">
+          <Button variant="gradient" color="indigo">Button</Button>
+          </div> */}
             <div className="contact-us bg-gradient-to-r from-cyan-500 to-blue-500">
         <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
           {/* <!-- text - start --> */}
