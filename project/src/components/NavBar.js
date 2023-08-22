@@ -11,7 +11,6 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-  Chip,
 } from "@material-tailwind/react";
 import {
   ChevronDoubleRightIcon,
@@ -22,7 +21,7 @@ import {
   QuestionMarkCircleIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+
 
 const colors = {
   blue: "bg-blue-50 text-blue-500",
@@ -39,49 +38,44 @@ const navListMenuItems = [
   {
     color: "blue",
     icon: ChevronDoubleRightIcon,
-    title: "About us",
-    description: "Learn about our story and our mission statement.",
+    title: "Financial Abuse",
+    description: "Learn about what Financial Abuse is",
+    href : "/financial_abuse"
   },
   {
     color: "orange",
     icon: ChevronDoubleRightIcon,
-    title: "Press",
-    description: "News and writings, press releases, and resources",
+    title: "Emotional Abuse",
+    description: "Learn about what Emotional Abuse is",
+    href: "/emotional_abuse"
   },
   {
     color: "green",
     icon: ChevronDoubleRightIcon,
-    title: (
-      <div className="flex items-center gap-1">
-        Careers{" "}
-        <Chip
-          size="sm"
-          color="green"
-          variant="ghost"
-          value="We're hiring!"
-          className="capitalize"
-        />
-      </div>
-    ),
-    description: "We are always looking for talented people. Join us!",
+    title: "Digital Abuse",
+    href: "/digital_abuse",
+    description: "Learn what Digital Abuse is.",
   },
   {
     color: "blue-gray",
     icon: ChevronDoubleRightIcon,
-    title: "Legal",
-    description: "All the stuff that we dan from legal made us add.",
+    title: "Sexual Abuse",
+    description: "Learn what Sexual Abuse is.",
+    href: "/sexual_abuse"
   },
   {
     color: "purple",
     icon: ChevronDoubleRightIcon,
-    title: "Products",
-    description: "Checkout our products that helps a startup running.",
+    title: "Physical Abuse",
+    description: "Learn what Physical Abuse is.",
+    href: "/physical_abuse"
   },
   {
     color: "teal",
     icon: ChevronDoubleRightIcon,
-    title: "Icons",
-    description: "Set of beautiful icons that you can use in your project.",
+    title: "Stalking",
+    description: "Learn what Stalking is.",
+    href:"/stalking"
   },
 ];
 
@@ -90,8 +84,8 @@ function NavListMenu() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   const renderItems = navListMenuItems.map(
-    ({ icon, title, description, color }, key) => (
-      <a href="#" key={key}>
+    ({ icon, title, description, color, href }, key) => (
+      <a href={href} key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
           <div className={`rounded-lg p-5 ${colors[color]}`}>
             {React.createElement(icon, {
