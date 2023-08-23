@@ -172,7 +172,7 @@ class ConsultationById(Resource):
         try:
             consultation = Consultation.query.get(id)
             if not consultation:
-                return jsonify({"error": "Consultation not found"}), 404
+                return make_response(jsonify({"error": "Consultation not found"}), 404)
 
             if 'name' in data:
                 consultation.name = data['name']
@@ -183,14 +183,15 @@ class ConsultationById(Resource):
 
             db.session.commit()
 
-            return consultation.to_dict(), 200
+            return make_response(consultation.to_dict(), 200)
+        
         except ValueError:
-            return jsonify({"error": ["validation errors"]}), 400
+            return make_response({"error": ["validation errors"]}, 400)
 
     def delete(self, id):
         consultation = Consultation.query.get(id)
         if not consultation:
-            return jsonify({"error": "Consultation not found"}), 404
+            return make_response(jsonify({"error": "Consultation not found"}), 404)
 
         db.session.delete(consultation)
         db.session.commit()
@@ -213,7 +214,7 @@ class GenerateSafetyPlan(Resource):
 
         try:
             new_safety_plan = SafetyPlan(
-
+            #email = f"{data['email']}",
             question1 = f"1. Reach out to these trusted people: {data['question1']}",
             question2 = f"2. This is how you're going to travel to safety: {data['question2']}",
             question3 = f"3. Safe locations outside your home: {data['question3']}",
@@ -224,18 +225,7 @@ class GenerateSafetyPlan(Resource):
             db.session.add(new_safety_plan)
             db.session.commit()
 
-#email for safetyplan
-            msg= Message('Please Review Your Safety Plan,', sender = 'lillian.oquendo1@gmail.com')
-            msg.body = "\n".join([
-                new_safety_plan.question1,
-                new_safety_plan.question2,
-                new_safety_plan.question3,
-                new_safety_plan.question4,
-                new_safety_plan.question5
-            ])
-            mail.send(msg)
-
-            response = make_response(jsonify(new_safety_plan.to_dict()), 201)
+            response = make_response(jsonify(new_safety_plan.to_dict()),201)
     
         except ValueError:
         
@@ -245,26 +235,7 @@ class GenerateSafetyPlan(Resource):
 
 api.add_resource(GenerateSafetyPlan, '/generate_safety_plan')
 
-# reference code for sending email
-# class MailService(Resource):
-#     def post(self):
-#         data = request.get_json()
 
-#         username = data.get("username")
-#         recipient_email = data.get("recipient_email")
-#         sender_email = data.get("sender_email")
-#         message = data.get("message")
-
-#         msg = Message(
-#             subject=f"PetPals Message from {username}",
-#             recipients=[recipient_email],
-#             body=f"{message}\n" + f"Email me at: {sender_email}",
-#         )
-
-#         mail.send(msg)
-
-#         return "Sent"
-# api.add_resource(MailService, '/send_email')
 
 
 if __name__ == '__main__':
