@@ -35,7 +35,7 @@ function AgencyMain() {
             <div><p id="heading-1" className="text-sm text-white leading-6 lg:text-2xl text-center">
             Select a category on the right to get started:</p></div>
         <div className="agencyContainer">
-            <div className="agency-grid">
+            <div>
                 
             <AgencyMaps selectedCategory={selectedCategory} />
             <div className="category-cards">
@@ -47,7 +47,11 @@ function AgencyMain() {
                     />
                 ))}
             </div>
-            {selectedCategory && <AgencyList selectedCategory={selectedCategory} agencies = {agencies} />}
+            {selectedCategory && (
+                <div className="carousel-container">
+                    <AgencyList selectedCategory={selectedCategory} agencies={agencies}/> 
+                    </div>
+            ) }
         </div>
         </div>
         </div>

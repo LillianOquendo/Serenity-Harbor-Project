@@ -32,6 +32,7 @@ class Agency(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
+    image = db.Column(db.String)
     fulladdress = db.Column(db.String)
     zipcode = db.Column(db.String)
     category = db.Column(db.String)
@@ -52,7 +53,7 @@ class Agency(db.Model, SerializerMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 #add __repr__ for debugging purposes
     def __repr__(self):
-        return f"Agency(id={self.id}, name='{self.name}', fulladdress='{self.fulladdress}', phone='{self.phone}', category='{self.category}', google_maps_url='{self.google_maps_url}', latitude={self.latitude}, longitude={self.longitude}, website='{self.website}', opening_hours='{self.opening_hours}')"
+        return f"Agency(id={self.id}, name='{self.name}', image='{self.image}', fulladdress='{self.fulladdress}', phone='{self.phone}', category='{self.category}', google_maps_url='{self.google_maps_url}', latitude={self.latitude}, longitude={self.longitude}, website='{self.website}', opening_hours='{self.opening_hours}')"
 
 #add serialization
 #Exclude consultations relationship
