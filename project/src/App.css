@@ -18,14 +18,18 @@ background: linear-gradient(to right, #00bfff, #3498db);
 .agencyBody {
   margin: 10;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #00bfff, #3498db);
+  
+}
+.carousel-container {
+  width: 1000px;
+  margin-left: 485px;
+  
 }
 
 .agencyContainer {
-  max-width: 1200px;
+  width: 2000px;
   margin: 0 auto;
   padding: 20px;
-  background:linear-gradient(to right, #00bfff, #3498db);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -53,6 +57,8 @@ background: linear-gradient(to right, #00bfff, #3498db);
   padding: 10px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1.2rem;
+  margin-top: 10px;
 }
 
 .agency-card:hover {
@@ -60,16 +66,9 @@ background: linear-gradient(to right, #00bfff, #3498db);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.agency-card h2 {
-  font-size: 1.2rem;
-  margin-top: 10px;
-  
-}
-
 .agencies-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
 }
 
 .agency {
@@ -85,96 +84,9 @@ background: linear-gradient(to right, #00bfff, #3498db);
   margin-top: 20px;
   height: 400px;
 }
-.image-size {
-  width: 145px; 
-  height: 100px; 
+
+.consult-form{
+  width: 1000px;
+  margin-left: 485px;
 }
 
-.agency-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px; 
-}
-
-.flip-card {
-  position: relative;
-  perspective: 1000px;
-  width: 100%;
-}
-
-.flip-card-inner {
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-
-.flip-card-back {
-  transform: rotateY(180deg);
-
-}
-
-.navbody {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.navbar {
-  background:linear-gradient(to right, #00bfff, #3498db);
-  color: white;
-  padding: 10px 0;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-}
-
-.nav-logo-img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-
-.nav-logo-text {
-  font-size: 1.5rem;
-  font-weight: bold;
-  align-items: center;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 20px;
-}
-
-.nav-links a:hover {
-  color: lightgray;
-}
-.logo-container {
-  display: flex;
-  align-items: center;
-}

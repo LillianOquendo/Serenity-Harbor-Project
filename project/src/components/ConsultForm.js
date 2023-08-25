@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAgencyContext } from "./AgencyContext";
+import { Button } from "@material-tailwind/react";
+import "/home/lillian/Development/code/phase-5/Serenity-Harbor-Project/project/src/App.css"
 
 function ConsultForm() {
     const { selectedCategory, setSelectedCategory, agencies, setAgencies } = useAgencyContext();
@@ -39,55 +41,40 @@ function ConsultForm() {
         }
     };
     const handleSubmit = (event) => {
-        //event.preventDefault();
-
-        //make user select a topic
-        if (value === "") {
-            alert("Please select a topic before submitting.");
-            return;
-        }
-
-        const new_consultation = {
-            name: name,
-            email: email,
-            message: message
-        };
-
-        if (editMode) {
-            fetch(`/consultations/${editingConsultationId}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(new_consultation)
-            })
-                .then(response => response.json())
-                .then(updatedConsultation => {
-                    // Update the consultation in the consultations list
-                    setConsultations(consultations.map((consultation) =>
-                        consultation.id === editingConsultationId ? updatedConsultation : consultation
-                    ));
-                    setEditMode(false);
-                    setEditingConsultationId(null);
-                    setName("");
-                    setEmail("");
-                    setMessage("");
-                })
-        } else {
-
-            fetch('/consultations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(new_consultation)
-            })
-                .then(response => response.json())
-                .then(new_consultation => {
-                    setConsultations([...consultations, new_consultation]);
-                });
+      event.preventDefault();
+  
+      // Make sure the user selects a topic
+      if (value === "") {
+          alert("Please select a topic before submitting.");
+          return;
+      }
+  
+      const new_consultation = {
+          name: name,
+          email: email,
+          message: message
+      };
+  
+      fetch('/consultations', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify(new_consultation)
+      })
+      .then(response => response.json())
+      .then(new_consultation => {
+          // Add the new consultation to the consultations array
+          setConsultations([...consultations, new_consultation]);
+          // Reset the form fields and show a successful submission message
+          setValue("");
+          setName("");
+          setEmail("");
+          setMessage("");
+          setFormSubmitted(true);
+      });
+  };
             //find the consultation to be edited
 
 
@@ -98,25 +85,13 @@ function ConsultForm() {
             //     setEditMode(true);
             //     setEditingConsultationId(consultation.id);
             //forces system to display a successful form submission message
-            setFormSubmitted(true);
-        }
-    };
+            
+  
 
-    const handleDelete = (id) => {
-        fetch(`/consultations/${id}`, {
-            method: 'DELETE'
-        })
-            .then(() => {
-                setConsultations(consultations.filter((consultation) => consultation.id !== id));
-            })
-            .catch((error) => {
-                console.error('Error deleting consultation:', error);
-            });
-    };
 
     return (
         
-            <div className="bg-gradient-to-r from-cyan-500 to-blue-500">
+            <div >
                 <div id ='1' className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
                     <div id ='2' className="flex justify-center">
                         <div id ='3'className="w-full max-w-2xl bg-white rounded-lg shadow-xl">
@@ -133,13 +108,14 @@ function ConsultForm() {
                         </div>
                     </div>
                 </div>
-                    <div id="div-7" className="mt-6 space-y-2 text-left text-lg">
+                <div className="consult-form">
+                    <div id="div-9" className="mt-6 space-y-2 text-left text-lg">
                         <form onSubmit={handleSubmit}>
                             <label>
-                                Select A Topic You Need Help In: 
+                                Select A Topic You Need Help In:
                             </label>
                             <select value={value} onChange={handleChange}>
-                                <option value="">-- Select a topic --</option>
+                                <option value="">------------</option>
                                 <option value="legal">Legal</option>
                                 <option value="food">Food</option>
                                 <option value="health">Health</option>
@@ -152,7 +128,7 @@ function ConsultForm() {
                                     </label>
                                     <textarea
                                         id = 'name'
-                                        className="h-10 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring focus:border-customTeal"
+                                        className="h-10 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 resize-none overflow-hidden"
                                         type="text" name='name' value={name} onChange={(e) => { setName(e.target.value) }}
                                     ></textarea>
                                     <div id="div-10" className="mt-6 space-y-2 text-left text-lg">
@@ -161,9 +137,9 @@ function ConsultForm() {
                                                 Email: 
                                             </label>
                                             <textarea
-                                                
-                                                className="h-10 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring focus:border-customTeal"
-                                                type="text" id='email' email='email' value={email} onChange={(e) => { setEmail(e.target.value) }}
+                                                id='email'
+                                                className="h-10 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 resize-none overflow-hidden"
+                                                type="text" email='email' value={email} onChange={(e) => { setEmail(e.target.value) }}
                                             ></textarea>
                                             <div id="div-12" className="mt-6 space-y-2 text-left text-lg">
                                                 <div id="div-13">
@@ -172,14 +148,15 @@ function ConsultForm() {
                                                     </label>
                                                     <textarea
                                                         id="message"
-                                                        className="h-60 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring focus:border-customTeal"
+                                                        className="h-60 w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 resize-none overflow-hidden"
                                                         type="text" message='message' value={message} onChange={(e) => { setMessage(e.target.value) }}
                                                         placeholder="Let us know how we can help. Please do not submit personal information via this form."
                                                     ></textarea>
-                                                    <button type='submit' className="inline-block rounded-lg bg-customTeal px-8 py-3 text-center text-sm font-semibold text-white">
+                                                    <div className="items-center rounded-lg bg-customTeal px-8 py-3 text-center text-md font-semibold text-white ">                                                    
+                                                    <button type='submit' >
                                                         Submit
                                                     </button>
-                                                        
+                                                    </div>    
                                                 </div>
                                             </div>  
                                         </div>
@@ -187,26 +164,10 @@ function ConsultForm() {
                                 </div>
                             </div>
                         </form>
+                        </div>
                     </div>
                     
-                    <ul>
-                        {consultations.map((consultation) => (
-                            consultation && (
-                                <li key={consultation.id}>
-                                    <p>Name: {consultation.name}</p>
-                                    <p>Email: {consultation.email}</p>
-                                    <p>Message: {consultation.message}</p>
-                                    <div id='div13'>
-                                        <button className="inline-block rounded-lg bg-customTeal px-8 py-3 text-center text-sm font-semibold text-white" onClick={() => handleDelete(consultation.id)}>Delete Consultation</button>
-                                        <button className="inline-block rounded-lg bg-customTeal px-8 py-3 text-center text-sm font-semibold text-white" onClick={() => handleEdit(consultation.id)}>Edit Consultation</button>
-                                    </div>
-                                </li>
-                            
-                            )
-                        ))}
-                    </ul>
                     
-            
         </div>
         
     );

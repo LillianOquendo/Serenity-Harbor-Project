@@ -3,6 +3,7 @@ import AgencyCard from "./AgencyCard";
 import AgencyList from "./AgencyList";
 import AgencyMaps from "./AgencyMaps";
 import "/home/lillian/Development/code/phase-5/Serenity-Harbor-Project/project/src/App.css"
+import ConsultForm from "./ConsultForm";
 
 function AgencyMain() {
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -28,12 +29,14 @@ function AgencyMain() {
     ];
 
     return (
-        <div className="bg-gradient-to-r from-cyan-500 to-blue-500">
-        <div><h3 id="heading-1" className="text-lg font-bold text-white leading-6 lg:text-5xl text-center">
+        <div>
+            <br></br>
+            <br></br>
+        <div><h3 id="heading-1" className="text-lg font-bold text-black leading-6 lg:text-5xl text-center">
             Agency Locator</h3></div>
             <br></br>
-            <div><p id="heading-1" className="text-sm text-white leading-6 lg:text-2xl text-center">
-            Select a category on the right to get started:</p></div>
+            <div><p id="heading-1" className="text-sm text-black leading-6 lg:text-2xl text-center">
+            Select a category to get started:</p></div>
         <div className="agencyContainer">
             <div>
                 
@@ -53,6 +56,7 @@ function AgencyMain() {
                     </div>
             ) }
         </div>
+        <ConsultForm/>
         </div>
         </div>
     );
