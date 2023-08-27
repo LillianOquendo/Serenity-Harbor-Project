@@ -16,7 +16,7 @@ import Stalking from './components/StalkingPage';
 import AboutUs from './components/AboutUs';
 import Consultation from './components/Consultations';
 import AgencyMain from './components/AgencyMain';
-import Footer from './components/Footer';
+import NewsletterSignup from './components/Newsletter';
 import './App.css';
 import 'tailwindcss/tailwind.css';
 import { AgencyProvider } from './components/AgencyContext';
@@ -77,8 +77,7 @@ function App() {
             render={() => <SafetyPlanForm onSubmit={handleSubmit} />}
           />
         </Routes>
-        {/* <NewsletterSignup /> */}
-        <Footer />
+
       </div>
     </AgencyProvider>
   );
