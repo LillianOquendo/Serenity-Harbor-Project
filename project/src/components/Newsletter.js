@@ -52,15 +52,15 @@ function NewsletterSignup() {
     }
 
     return (
-        <footer id="1" className="bg-white">
-            <div id="2" className="bg-customTeal py-6">
-                <div id="3" className="mx-auto max-w-screen-2xl px-4 md:px-8">
-                    <div id="4" className="flex flex-col items-center justify-between md:flex-row">
+        <footer className="bg-white ">
+            <div className="newsletter-bg ">
+                <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+                    <div className="flex flex-col items-center justify-between md:flex-row">
                         <div id='5' className="mb-3 text-center md:mb-0 md:text-left">
-                            <span className="font-bold uppercase tracking-widest text-gray-100">
-                                Newsletter
+                            <span className="font-bold uppercase tracking-widest text-black">
+                                Sign-Up for Our Newsletter!
                             </span>
-                            <p className="text-indigo-200">Subscribe to our newsletter</p>
+                            
                         </div>
 
                         <form id='6' className=" items-center flex w-full gap-2 md:max-w-md md:w-auto" onSubmit={handleSubmit}>
@@ -70,7 +70,7 @@ function NewsletterSignup() {
                                 value={formData.name}
                                 onChange={handleChange}
                                 placeholder="Name"
-                                className="w-72 flex-1 rounded border border-white bg-white px-8 py-2 text-customTeal placeholder-customTeal outline-none ring-customTeal transition duration-100 focus:ring"
+                                className="w-72 flex-1 rounded border border-cyan-700 bg-white px-8 py-2 text-black placeholder-black  ring-customTeal transition duration-100 focus:ring"
                             />
                             <input
                                 type="email"
@@ -78,18 +78,21 @@ function NewsletterSignup() {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="Email"
-                                className="w-72 flex-1 rounded border border-white bg-white px-8 py-2 text-customTeal placeholder-customTeal outline-none ring-customTeal transition duration-100 focus:ring"
+                                className="w-72 flex-1 rounded border border-cyan-700 bg-white px-8 py-2 text-black placeholder-black outline-none ring-customTeal transition duration-100 focus:ring"
                             />
 
-                            <button type="submit" className="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-customTeal outline-none ring-customLightBlue transition duration-100">
+                            {/* <button type="submit" className="inline-block rounded bg-white px-8 py-2 text-center text-sm font-semibold text-customTeal outline-cyan-700 ring-customTeal transition duration-100">
                                 Send
+                            </button> */}
+                            <button class="mx-auto lg:mx-0 hover:underline bg-cyan-700 text-white font-bold rounded-full my-3 py-2 px-7 shadow-md focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                            Submit
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <div id="7" className="border-t py-4 text-center text-sm text-gray-400">
+            <div className="border-t py-2 text-center text-sm text-gray-400">
                 © 2023 - Created by Lillian Oquendo
             </div>
         </footer>

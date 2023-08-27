@@ -1,20 +1,20 @@
-import React from "react";
-import NewsletterSignup from "./Newsletter";
+// import React from "react";
+// import NewsletterSignup from "./Newsletter";
 
-function Footer() {
-    return (
-        <footer className="flex flex-col justify-between min-h-screen"> 
+// function Footer() {
+//     return (
+//         <footer className="flex flex-col justify-between "> 
 
 
-            <div className="flex-grow"></div> 
+//             <div className="flex-grow"></div> 
             
-            <NewsletterSignup /> 
+//             <NewsletterSignup /> 
             
-        </footer>
-    );
-}
+//         </footer>
+//     );
+// }
 
-export default Footer;
+// export default Footer;
 
 
 
