@@ -8,7 +8,13 @@ module.exports = withMT({
   theme: {
     extend: {
     borderRadius:{
-      extraLarge: '12rem'
+      extraLarge: '12rem',
+      small: '0.125rem',
+      medium: '0.375rem',
+      large: '0.5rem',
+      full: '9999px',
+  
+      
     },
     colors: {
       customTeal: '#05668D',
