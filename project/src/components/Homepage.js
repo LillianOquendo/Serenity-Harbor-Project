@@ -10,14 +10,14 @@ function Homepage(){
         <div >
 
 <div class="pt-14">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row justify-between items-center">
         {/* <!--Left Col--> */}
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left ">
           {/* <p class="uppercase tracking-loose w-full">Welcome to Serenity Harbor</p> */}
-          <h1 class="my-4 text-5xl font-bold leading-tight text-white">
+          <h1 class="my-4 text-5xl font-bold leading-tight text-white drop-shadow-[0px_5px_0px_rgba(0,0,0,.5)] ">
             Welcome to Serenity Harbor
           </h1>
-          <p class="leading-normal text-2xl mb-8 text-white">
+          <p class="leading-normal text-2xl mb-8 text-white drop-shadow-[0px_2px_0px_rgba(0,0,0,.5)]">
           Rebuilding Lives, One Connection at a Time
           </p>
           <a href="/about_us">
@@ -28,7 +28,7 @@ function Homepage(){
         </div>
         {/* <!--Right Col--> */}
         <div class="w-full md:w-1/2 py-0 text-center ">
-          <img class= "p-7 rounded-tl-extraLarge rounded-br-extraLarge" src = 'https://i.ibb.co/Tk7GGrx/20221007-175750.jpg' alt='Image by Lillian Oquendo'/>
+          <img class= "p-7 rounded-tl-extraLarge rounded-br-extraLarge border-8" src = 'https://i.ibb.co/Tk7GGrx/20221007-175750.jpg' alt='Image by Lillian Oquendo'/>
         </div>
       </div>
     </div>

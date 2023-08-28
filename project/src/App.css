@@ -1,7 +1,7 @@
 
 
 body{
-    background: linear-gradient(90deg, #0097a7 0%, #0288d1 100%);
+    background: linear-gradient(90deg, #81d4fa 0%, #0d47a1 100%);
 }
 
 /* Style the image container with fading effect */
@@ -138,4 +138,17 @@ body{
   height: 40px; /* Adjust the height as needed */
   background-color: white; /* White background color */
   z-index: -1; /* Place it behind other content */
+}
+
+.abuse-grid{
+  width: 50%;
+}
+.title-grid{
+  width: 50%;
+}
+
+.abuse-image-container{
+  max-width: 100%; 
+  margin-top: 20px;
+  float: right;
 }
