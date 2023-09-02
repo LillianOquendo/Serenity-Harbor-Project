@@ -12,9 +12,10 @@ module.exports = withMT({
       small: '0.125rem',
       medium: '0.375rem',
       large: '0.5rem',
-      full: '9999px',
-  
-      
+      full: '9999px', 
+    },
+    scale:{
+      flagsBoxSize: '.85',
     },
     colors: {
       customTeal: '#05668D',

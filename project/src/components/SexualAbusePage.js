@@ -3,18 +3,17 @@ import NewsletterSignup from "./Newsletter";
 function Sexual() {
   return (
     <div>
-      <div className="flex justify-items-center">
-        <div className="w-1/2 h-fit">
+      <div class="flex justify-items-center">
+        <div class="w-1/2 h-fit">
               
               <h1 class="my-10 text-5xl font-bold leading-tight text-center text-white drop-shadow-[0px_5px_0px_rgba(0,0,0,.5)] ">
                 Physical Abuse
               </h1>
-           
-           
-              <div className=" ml-20 mr-20 mt-5 bg-white rounded-tr-3xl rounded-tl-3xl rounded-br-3xl rounded-bl-3xl">
+
+              <div class=" ml-20 mr-20 mt-5 bg-white rounded-tr-3xl rounded-tl-3xl rounded-br-3xl rounded-bl-3xl">
                 
-                <div className="p-5 text-center  cursor-default">
-                  <p className="text-center mt-2 text-md text-slate-500">
+                <div class="p-5 text-center  cursor-default">
+                  <p class="text-center mt-2 text-md text-slate-500">
                     Sexual Abuse refers to any behavior that pressures or
                     coerces someone to do something sexually that they do not
                     what to do. It can also refer to behavior that impacts a
@@ -23,19 +22,21 @@ function Sexual() {
                     including oral sex, rape, or controlling reproductive
                     methods and choices.
                   </p>
-                 
+
                 </div>
               </div>
-                  <h1 class="my-4 text-3xl text-center font-bold leading-tight text-white drop-shadow-[0px_5px_0px_rgba(0,0,0,.5)] ">
+              <div>
+                  <h1 id="signs-box"class="my-4 text-3xl text-center font-bold text-white drop-shadow-[0px_5px_0px_rgba(0,0,0,.5)] ">
                     5 Signs of Physical Abuse
                   </h1>
-              <div className="m-20 justify-items-center">
-                <div className="pl-20 pr-20 mb-20 group bg-white rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-3xl">
-                  <div className="p-2 flex flex-col items-center text-center group cursor-default">
-                    <p className="text-xl font-medium text-slate-700 mt-3">
+                  </div>
+              <div class="justify-items-center ">
+                <div class="pl-20 pr-20 mb-20 scale-flagsBoxSize group bg-white rounded-tl-3xl rounded-tr-3xl rounded-br-3xl rounded-bl-3xl">
+                  <div class="p-2 flex flex-col items-center text-center group cursor-default">
+                    <p class="text-xl font-medium text-slate-700 mt-3">
                       🚩 Force
                     </p>
-                    <p className="text-sm text-slate-500">
+                    <p class="text-sm text-slate-500">
                       Force or manipulate you into having sex or performing
                       sexual acts, especially when you're sick, tired, or
                       physically injured from their abuse: This is a clear form
@@ -44,33 +45,33 @@ function Sexual() {
                     </p>
                   </div>
 
-                  <div className="p-2 flex flex-col items-center text-center group cursor-default">
-                    <p className="text-xl font-medium text-slate-700 mt-3">
+                  <div class="p-2 flex flex-col items-center text-center group cursor-default">
+                    <p class="text-xl font-medium text-slate-700 mt-3">
                       🚩 Restraint
                     </p>
-                    <p className=" text-sm text-slate-500">
+                    <p class=" text-sm text-slate-500">
                       Strangle you or restrain you during sex without your
                       consent: This involves physical violence during sexual
                       activity, which is a dangerous and abusive act.
                     </p>
                   </div>
 
-                  <div className="p-2 flex flex-col items-center text-center group cursor-default">
-                    <p className="text-xl font-medium text-slate-700 mt-3">
+                  <div class="p-2 flex flex-col items-center text-center group cursor-default">
+                    <p class="text-xl font-medium text-slate-700 mt-3">
                       🚩 Harm
                     </p>
-                    <p className=" text-sm text-slate-500">
+                    <p class=" text-sm text-slate-500">
                       Hurt you with weapons or objects during sex: The use of
                       weapons or objects during sex is a form of sexual violence
                       and poses serious physical harm to the victim.
                     </p>
                   </div>
 
-                  <div className="p-2 flex flex-col items-center text-center group cursor-default">
-                    <p className="text-xl font-medium text-slate-700 mt-3">
+                  <div class="p-2 flex flex-col items-center text-center group cursor-default">
+                    <p class="text-xl font-medium text-slate-700 mt-3">
                       🚩 Involving Other Parties Against Your Will
                     </p>
-                    <p className=" text-sm text-slate-500">
+                    <p class=" text-sm text-slate-500">
                       Involve other people in your sexual activities against
                       your will: This is a violation of your sexual boundaries
                       and consent, and it can lead to significant emotional
@@ -78,31 +79,31 @@ function Sexual() {
                     </p>
                   </div>
 
-                  <div className="p-2 flex flex-col items-center text-center group cursor-default">
-                    <h1 className="text-xl font-medium text-slate-700 mt-3 ">
-                      {/* <span className="p-2 rounded bg-red-500 text-white shadow-lg shadow-gray-500"></span> */}
+                  <div class="p-2 flex flex-col items-center text-center group cursor-default">
+                    <h1 class="text-xl font-medium text-slate-700 mt-3 ">
+                      {/* <span class="p-2 rounded bg-red-500 text-white shadow-lg shadow-gray-500"></span> */}
                       🚩 Force You to Watch or Make Porn
                     </h1>
-                    <p className=" text-sm text-slate-500">
+                    <p class=" text-sm text-slate-500">
                       Force you to watch or make pornography: This is a form of
                       sexual exploitation and can be emotionally distressing and
                       humiliating.
                     </p>
                  
-                </div>
+                
               </div>
             </div>
           </div>
         </div>
 
-        <div className="p-20 w-1/2">
+        <div class="p-20 w-1/2">
           <img
-            className="mt-20 rounded-3xl border-8"
+            class="mt-15 rounded-3xl border-8 scale-75"
             src="/assets/images/hands.jpg"
             alt="Image by Josie Stephens on Pexels"
           />
         </div>
-      
+      </div>
       <div>
         <div class="relative -mt-12 lg:-mt-24">
           <svg
